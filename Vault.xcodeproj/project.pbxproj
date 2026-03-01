@@ -38,6 +38,9 @@
 		DB7D18913E2C9CD8226DA122 /* WearLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5CBF57F327BCC7042E2FC5 /* WearLog.swift */; };
 		DD771D468AE08423664B6620 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16F7E03DDA7B2B4820E2133 /* CollectionView.swift */; };
 		E42903313E9BA0DED2D8E95F /* WearHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912B73C8A9B29C10D7B32443 /* WearHistoryView.swift */; };
+		9B35059B755348CDB52B1254 /* DailyWearLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453A83F5D52B4BE1AD2D3E64 /* DailyWearLogView.swift */; };
+		1BC3222A605D486C850C5A7E /* WearCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DB3D27A29C4E299543A1EF /* WearCalendarView.swift */; };
+		92F4A216E48E4F6F8BBA1CFB /* WearStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E92946BAD43A7A0F1A751 /* WearStatisticsView.swift */; };
 		E7A4B45272DA5AAB2C2F6036 /* WishlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E16F340D82AB7B1F69DC /* WishlistView.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +73,9 @@
 		856BD9143CB11256BBD30AAD /* DocumentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentDetailView.swift; sourceTree = "<group>"; };
 		8FD5A7C34C7E842E39629E9C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		912B73C8A9B29C10D7B32443 /* WearHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WearHistoryView.swift; sourceTree = "<group>"; };
+		453A83F5D52B4BE1AD2D3E64 /* DailyWearLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWearLogView.swift; sourceTree = "<group>"; };
+		68DB3D27A29C4E299543A1EF /* WearCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WearCalendarView.swift; sourceTree = "<group>"; };
+		5E6E92946BAD43A7A0F1A751 /* WearStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WearStatisticsView.swift; sourceTree = "<group>"; };
 		93086D640732F70FCE4EE21E /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
 		94E9E16F340D82AB7B1F69DC /* WishlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistView.swift; sourceTree = "<group>"; };
 		9D1219134B99E8EDE1E52AC0 /* InsurancePDFService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsurancePDFService.swift; sourceTree = "<group>"; };
@@ -144,7 +150,10 @@
 			isa = PBXGroup;
 			children = (
 				912B73C8A9B29C10D7B32443 /* WearHistoryView.swift */,
-			);
+			
+				453A83F5D52B4BE1AD2D3E64 /* DailyWearLogView.swift */,
+				68DB3D27A29C4E299543A1EF /* WearCalendarView.swift */,
+				5E6E92946BAD43A7A0F1A751 /* WearStatisticsView.swift */,);
 			path = WearHistory;
 			sourceTree = "<group>";
 		};
@@ -393,6 +402,9 @@
 				70DB64EDF4D238EF1099F7AE /* VaultApp.swift in Sources */,
 				4EAC4B76EDFB00FB948D0662 /* Watch.swift in Sources */,
 				E42903313E9BA0DED2D8E95F /* WearHistoryView.swift in Sources */,
+				9B35059B755348CDB52B1254 /* DailyWearLogView.swift in Sources */,
+				1BC3222A605D486C850C5A7E /* WearCalendarView.swift in Sources */,
+				92F4A216E48E4F6F8BBA1CFB /* WearStatisticsView.swift in Sources */,
 				DB7D18913E2C9CD8226DA122 /* WearLog.swift in Sources */,
 				E7A4B45272DA5AAB2C2F6036 /* WishlistView.swift in Sources */,
 			);
