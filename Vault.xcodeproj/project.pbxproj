@@ -7,19 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02E2E4B1E37B66CD1B68FD37 /* InsuranceSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93AD67463287E603B05218C /* InsuranceSummaryView.swift */; };
 		2DAA7119A6DCA5A3090FA1C2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72517D1DEA6047C0C9190FC /* SettingsView.swift */; };
 		36E6109225F9FDC9DFE86F64 /* ServiceRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5282C792A9C9C756066F0A /* ServiceRecord.swift */; };
 		3C580B24BACEBD1807305FB7 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD5A7C34C7E842E39629E9C /* DataManager.swift */; };
 		4EAC4B76EDFB00FB948D0662 /* Watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FA8EA914719BF5F1DD061A /* Watch.swift */; };
 		52209C7008CB82F515D64DD6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA45750A8307AAA77E059D9B /* Theme.swift */; };
+		546CAC6337C9C592D5488A69 /* DocumentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BD9143CB11256BBD30AAD /* DocumentDetailView.swift */; };
+		59BBD69D11EC6CBB47B3A84E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E09C0564075B89A975BB7796 /* Assets.xcassets */; };
 		70DB64EDF4D238EF1099F7AE /* VaultApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EDC5151302783D02B5C425 /* VaultApp.swift */; };
 		762786DEC456C484B5F87991 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B39EE0FA2E2A39705645503 /* MoreView.swift */; };
 		804267FE48175AD985F51AD0 /* InsuranceDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378FF1E34A7C8B766422DD36 /* InsuranceDocument.swift */; };
 		845558AB4E633F9BD853E154 /* ValueHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D4DABF0C8C9B34DCFC625 /* ValueHistory.swift */; };
+		892588138507C31C1957EE84 /* MarketDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026725E7AA863CFA08BD268E /* MarketDataProvider.swift */; };
+		8C5056F8F4D78A6CAF9B984A /* AddDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AC473FF462A119153FD8D8 /* AddDocumentView.swift */; };
+		8F9248D79A2A303E64F2172D /* PriceAlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDDEDCFCCC3D9AF4C3DB23A /* PriceAlertService.swift */; };
+		92D8158EFE418B3F352A96EC /* ServiceRecordListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D9CDB730A352CADE624A4 /* ServiceRecordListView.swift */; };
+		977D145492A3BDEF6A2763E5 /* AddServiceRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB85987ACBCADC534D1B2DA3 /* AddServiceRecordView.swift */; };
 		A278586B865C0B1451C233BE /* PhotoStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6310EA0421E492E0932B8E89 /* PhotoStorageService.swift */; };
+		A292D6C5E7C0491F7B0FEAE8 /* ValueTrackingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E29B165B2420B54BA9240C9 /* ValueTrackingService.swift */; };
+		A7E2B50731213E5B36DECF71 /* ValueTrackingServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422A20B18A1B63889DFABE6C /* ValueTrackingServiceTests.swift */; };
 		AECFE0BF8DEFDF7925038CF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F94B0EEE3449AC22DA35AA /* ContentView.swift */; };
 		B8FB3387D273AE5F6CF90728 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD63E5F42D4DB7738AFACD62 /* OnboardingView.swift */; };
+		BAE75E79DFAE0411FC56022E /* InsurancePDFService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1219134B99E8EDE1E52AC0 /* InsurancePDFService.swift */; };
+		BDCE1E10FE0DEDFD79A5129D /* ServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5720D18739BEC29A8B5FAA4C /* ServiceType.swift */; };
 		BF9D3C80BDBEEFF46D4D843D /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93086D640732F70FCE4EE21E /* AnalyticsView.swift */; };
+		C732AB49FBC5F29E8E1476AB /* DocumentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403FD7A8BE2720D418A64B7 /* DocumentListView.swift */; };
 		C8AB2D54210851A26289B8CC /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E79686895C28F6812B50F70 /* PlaceholderView.swift */; };
 		CA837015C1024EF93370DF2C /* InsuranceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6AFD27C0496FE675CF90F7 /* InsuranceView.swift */; };
 		DB7D18913E2C9CD8226DA122 /* WearLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5CBF57F327BCC7042E2FC5 /* WearLog.swift */; };
@@ -28,29 +41,53 @@
 		E7A4B45272DA5AAB2C2F6036 /* WishlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E16F340D82AB7B1F69DC /* WishlistView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		560981DD456B339E282FA7D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67951CF71F4DFCDAAA504831 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDB44E800EA1C34592858BFF;
+			remoteInfo = Vault;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		026725E7AA863CFA08BD268E /* MarketDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataProvider.swift; sourceTree = "<group>"; };
 		0E79686895C28F6812B50F70 /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		2B39EE0FA2E2A39705645503 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		2B5CBF57F327BCC7042E2FC5 /* WearLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WearLog.swift; sourceTree = "<group>"; };
 		34030F225FE9F0E69571DFF2 /* .gitkeep */ = {isa = PBXFileReference; path = .gitkeep; sourceTree = "<group>"; };
 		378FF1E34A7C8B766422DD36 /* InsuranceDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceDocument.swift; sourceTree = "<group>"; };
+		422A20B18A1B63889DFABE6C /* ValueTrackingServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueTrackingServiceTests.swift; sourceTree = "<group>"; };
+		5720D18739BEC29A8B5FAA4C /* ServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceType.swift; sourceTree = "<group>"; };
+		590CB3251467FCB0AFF5D186 /* VaultTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = VaultTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6310EA0421E492E0932B8E89 /* PhotoStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStorageService.swift; sourceTree = "<group>"; };
 		6B6AFD27C0496FE675CF90F7 /* InsuranceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceView.swift; sourceTree = "<group>"; };
+		79AC473FF462A119153FD8D8 /* AddDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDocumentView.swift; sourceTree = "<group>"; };
 		7AA0F645DCBED0D516F92667 /* Vault.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Vault.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F5D9CDB730A352CADE624A4 /* ServiceRecordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRecordListView.swift; sourceTree = "<group>"; };
+		8403FD7A8BE2720D418A64B7 /* DocumentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentListView.swift; sourceTree = "<group>"; };
+		856BD9143CB11256BBD30AAD /* DocumentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentDetailView.swift; sourceTree = "<group>"; };
 		8FD5A7C34C7E842E39629E9C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		912B73C8A9B29C10D7B32443 /* WearHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WearHistoryView.swift; sourceTree = "<group>"; };
 		93086D640732F70FCE4EE21E /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
 		94E9E16F340D82AB7B1F69DC /* WishlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistView.swift; sourceTree = "<group>"; };
+		9D1219134B99E8EDE1E52AC0 /* InsurancePDFService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsurancePDFService.swift; sourceTree = "<group>"; };
+		9E29B165B2420B54BA9240C9 /* ValueTrackingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueTrackingService.swift; sourceTree = "<group>"; };
+		9EDDEDCFCCC3D9AF4C3DB23A /* PriceAlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceAlertService.swift; sourceTree = "<group>"; };
 		A9EDC5151302783D02B5C425 /* VaultApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultApp.swift; sourceTree = "<group>"; };
 		AA45750A8307AAA77E059D9B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		AA5282C792A9C9C756066F0A /* ServiceRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRecord.swift; sourceTree = "<group>"; };
 		AAAC7CD352C170B46DC5E48B /* .gitkeep */ = {isa = PBXFileReference; path = .gitkeep; sourceTree = "<group>"; };
+		AB85987ACBCADC534D1B2DA3 /* AddServiceRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServiceRecordView.swift; sourceTree = "<group>"; };
 		AB9D4DABF0C8C9B34DCFC625 /* ValueHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueHistory.swift; sourceTree = "<group>"; };
 		AD63E5F42D4DB7738AFACD62 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		B16F7E03DDA7B2B4820E2133 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		B93AD67463287E603B05218C /* InsuranceSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceSummaryView.swift; sourceTree = "<group>"; };
 		C3FA8EA914719BF5F1DD061A /* Watch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch.swift; sourceTree = "<group>"; };
 		C72517D1DEA6047C0C9190FC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		CA84263BDD9E436F3764C223 /* .gitkeep */ = {isa = PBXFileReference; path = .gitkeep; sourceTree = "<group>"; };
+		E09C0564075B89A975BB7796 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0F94B0EEE3449AC22DA35AA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,7 +95,13 @@
 		02FAB70427EAFD516F702AA5 /* Insurance */ = {
 			isa = PBXGroup;
 			children = (
+				79AC473FF462A119153FD8D8 /* AddDocumentView.swift */,
+				AB85987ACBCADC534D1B2DA3 /* AddServiceRecordView.swift */,
+				856BD9143CB11256BBD30AAD /* DocumentDetailView.swift */,
+				8403FD7A8BE2720D418A64B7 /* DocumentListView.swift */,
+				B93AD67463287E603B05218C /* InsuranceSummaryView.swift */,
 				6B6AFD27C0496FE675CF90F7 /* InsuranceView.swift */,
+				7F5D9CDB730A352CADE624A4 /* ServiceRecordListView.swift */,
 			);
 			path = Insurance;
 			sourceTree = "<group>";
@@ -67,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				7AA0F645DCBED0D516F92667 /* Vault.app */,
+				590CB3251467FCB0AFF5D186 /* VaultTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				AAAC7CD352C170B46DC5E48B /* .gitkeep */,
+				E09C0564075B89A975BB7796 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -151,6 +196,14 @@
 				A9EDC5151302783D02B5C425 /* VaultApp.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		A3438F53070B56F5BA2A0313 /* VaultTests */ = {
+			isa = PBXGroup;
+			children = (
+				422A20B18A1B63889DFABE6C /* ValueTrackingServiceTests.swift */,
+			);
+			path = VaultTests;
 			sourceTree = "<group>";
 		};
 		A8E8ADAD76FE24EA000EB864 /* Onboarding */ = {
@@ -166,7 +219,11 @@
 			children = (
 				CA84263BDD9E436F3764C223 /* .gitkeep */,
 				8FD5A7C34C7E842E39629E9C /* DataManager.swift */,
+				9D1219134B99E8EDE1E52AC0 /* InsurancePDFService.swift */,
+				026725E7AA863CFA08BD268E /* MarketDataProvider.swift */,
 				6310EA0421E492E0932B8E89 /* PhotoStorageService.swift */,
+				9EDDEDCFCCC3D9AF4C3DB23A /* PriceAlertService.swift */,
+				9E29B165B2420B54BA9240C9 /* ValueTrackingService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -175,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				E0A45C9AFCB1F2E27B9EEE61 /* Vault */,
+				A3438F53070B56F5BA2A0313 /* VaultTests */,
 				05A40E2AE79426A0467EE925 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -185,6 +243,7 @@
 				34030F225FE9F0E69571DFF2 /* .gitkeep */,
 				378FF1E34A7C8B766422DD36 /* InsuranceDocument.swift */,
 				AA5282C792A9C9C756066F0A /* ServiceRecord.swift */,
+				5720D18739BEC29A8B5FAA4C /* ServiceType.swift */,
 				AB9D4DABF0C8C9B34DCFC625 /* ValueHistory.swift */,
 				C3FA8EA914719BF5F1DD061A /* Watch.swift */,
 				2B5CBF57F327BCC7042E2FC5 /* WearLog.swift */,
@@ -212,6 +271,7 @@
 			buildConfigurationList = E34AA4A293A909B9F0830AE2 /* Build configuration list for PBXNativeTarget "Vault" */;
 			buildPhases = (
 				FAD54CA8499EE0722917C7EF /* Sources */,
+				612812AA241EB8250D93A749 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -224,6 +284,24 @@
 			productReference = 7AA0F645DCBED0D516F92667 /* Vault.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F978F7C937ADF5C2D227E8B8 /* VaultTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D9655B528C30FC724FE49F6 /* Build configuration list for PBXNativeTarget "VaultTests" */;
+			buildPhases = (
+				9DAFFBE885EFD54A96FC3938 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC5CA4F5F3D1BA289B07A8D6 /* PBXTargetDependency */,
+			);
+			name = VaultTests;
+			packageProductDependencies = (
+			);
+			productName = VaultTests;
+			productReference = 590CB3251467FCB0AFF5D186 /* VaultTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -234,6 +312,10 @@
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					DDB44E800EA1C34592858BFF = {
+						DevelopmentTeam = 62R87RHN6R;
+						ProvisioningStyle = Automatic;
+					};
+					F978F7C937ADF5C2D227E8B8 = {
 						DevelopmentTeam = 62R87RHN6R;
 						ProvisioningStyle = Automatic;
 					};
@@ -254,29 +336,60 @@
 			projectRoot = "";
 			targets = (
 				DDB44E800EA1C34592858BFF /* Vault */,
+				F978F7C937ADF5C2D227E8B8 /* VaultTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		612812AA241EB8250D93A749 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59BBD69D11EC6CBB47B3A84E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		9DAFFBE885EFD54A96FC3938 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7E2B50731213E5B36DECF71 /* ValueTrackingServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FAD54CA8499EE0722917C7EF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C5056F8F4D78A6CAF9B984A /* AddDocumentView.swift in Sources */,
+				977D145492A3BDEF6A2763E5 /* AddServiceRecordView.swift in Sources */,
 				BF9D3C80BDBEEFF46D4D843D /* AnalyticsView.swift in Sources */,
 				DD771D468AE08423664B6620 /* CollectionView.swift in Sources */,
 				AECFE0BF8DEFDF7925038CF7 /* ContentView.swift in Sources */,
 				3C580B24BACEBD1807305FB7 /* DataManager.swift in Sources */,
+				546CAC6337C9C592D5488A69 /* DocumentDetailView.swift in Sources */,
+				C732AB49FBC5F29E8E1476AB /* DocumentListView.swift in Sources */,
 				804267FE48175AD985F51AD0 /* InsuranceDocument.swift in Sources */,
+				BAE75E79DFAE0411FC56022E /* InsurancePDFService.swift in Sources */,
+				02E2E4B1E37B66CD1B68FD37 /* InsuranceSummaryView.swift in Sources */,
 				CA837015C1024EF93370DF2C /* InsuranceView.swift in Sources */,
+				892588138507C31C1957EE84 /* MarketDataProvider.swift in Sources */,
 				762786DEC456C484B5F87991 /* MoreView.swift in Sources */,
 				B8FB3387D273AE5F6CF90728 /* OnboardingView.swift in Sources */,
 				A278586B865C0B1451C233BE /* PhotoStorageService.swift in Sources */,
 				C8AB2D54210851A26289B8CC /* PlaceholderView.swift in Sources */,
+				8F9248D79A2A303E64F2172D /* PriceAlertService.swift in Sources */,
 				36E6109225F9FDC9DFE86F64 /* ServiceRecord.swift in Sources */,
+				92D8158EFE418B3F352A96EC /* ServiceRecordListView.swift in Sources */,
+				BDCE1E10FE0DEDFD79A5129D /* ServiceType.swift in Sources */,
 				2DAA7119A6DCA5A3090FA1C2 /* SettingsView.swift in Sources */,
 				52209C7008CB82F515D64DD6 /* Theme.swift in Sources */,
 				845558AB4E633F9BD853E154 /* ValueHistory.swift in Sources */,
+				A292D6C5E7C0491F7B0FEAE8 /* ValueTrackingService.swift in Sources */,
 				70DB64EDF4D238EF1099F7AE /* VaultApp.swift in Sources */,
 				4EAC4B76EDFB00FB948D0662 /* Watch.swift in Sources */,
 				E42903313E9BA0DED2D8E95F /* WearHistoryView.swift in Sources */,
@@ -286,6 +399,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EC5CA4F5F3D1BA289B07A8D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDB44E800EA1C34592858BFF /* Vault */;
+			targetProxy = 560981DD456B339E282FA7D7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		3E5B4F5B0EC00B58E2210513 /* Debug */ = {
@@ -298,6 +419,8 @@
 				DEVELOPMENT_TEAM = 62R87RHN6R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Vault;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Vault uses the camera to scan and photograph insurance documents, receipts, and appraisals for your watch collection.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Vault accesses your photo library to import documents and watch photos.";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -313,6 +436,44 @@
 			};
 			name = Debug;
 		};
+		53F6C7FA669E50829B42FE23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 62R87RHN6R;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chadnewbry.vault.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vault.app/Vault";
+			};
+			name = Debug;
+		};
+		7EA70073DBB330BD46B7B4E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 62R87RHN6R;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chadnewbry.vault.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vault.app/Vault";
+			};
+			name = Release;
+		};
 		9E89E8BCDC8DF85764E0A760 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -323,6 +484,8 @@
 				DEVELOPMENT_TEAM = 62R87RHN6R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Vault;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Vault uses the camera to scan and photograph insurance documents, receipts, and appraisals for your watch collection.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Vault accesses your photo library to import documents and watch photos.";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -465,6 +628,15 @@
 			buildConfigurations = (
 				CBB932D356AD35D71E0503D5 /* Debug */,
 				B6BDF9332732D59DECAE5713 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8D9655B528C30FC724FE49F6 /* Build configuration list for PBXNativeTarget "VaultTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53F6C7FA669E50829B42FE23 /* Debug */,
+				7EA70073DBB330BD46B7B4E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
