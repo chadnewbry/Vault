@@ -49,6 +49,8 @@ final class Watch {
     var notes: String?
     var isInWishlist: Bool
     var priceAlertTarget: Double?
+    var wishlistOrder: Int
+    var listingURL: String?
     var createdAt: Date
 
     @Relationship(deleteRule: .cascade, inverse: \WearLog.watch)
@@ -78,6 +80,7 @@ final class Watch {
         self.complications = []
         self.photoFileNames = []
         self.isInWishlist = isInWishlist
+        self.wishlistOrder = 0
         self.createdAt = Date()
         self.wearLogs = []
         self.serviceRecords = []
