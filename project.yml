@@ -28,3 +28,5 @@ targets:
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
         INFOPLIST_KEY_UISupportedInterfaceOrientations: "UIInterfaceOrientationPortrait"
         INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        INFOPLIST_KEY_NSCameraUsageDescription: "Vault uses the camera to scan and photograph insurance documents, receipts, and appraisals for your watch collection."
+        INFOPLIST_KEY_NSPhotoLibraryUsageDescription: "Vault accesses your photo library to import documents and watch photos."
