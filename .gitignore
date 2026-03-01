@@ -7,3 +7,6 @@ DerivedData/
 *.dSYM.zip
 *.dSYM
 .DS_Store
+
+# Intermediate screenshot files
+screenshots/

@@ -1,0 +1,87 @@
+{
+  "devices": [
+    {
+      "bezelWidthFraction": 0.016,
+      "deviceWidthFraction": 0.75,
+      "frameCornerRadiusFraction": 0.13,
+      "name": "iPhone 6.5",
+      "outputDirectory": "iPhone 6.5",
+      "outputHeight": 2688,
+      "outputWidth": 1242,
+      "screenAspectRatio": 2.1643
+    },
+    {
+      "bezelWidthFraction": 0.008,
+      "deviceWidthFraction": 0.82,
+      "frameCornerRadiusFraction": 0.045,
+      "name": "iPad 13",
+      "outputDirectory": "iPad 13",
+      "outputHeight": 2752,
+      "outputWidth": 2064,
+      "screenAspectRatio": 1.3333
+    }
+  ],
+  "locale": "en-US",
+  "outputDirectory": "App-Store-Screenshots",
+  "screenshotCount": 8,
+  "screenshots": [
+    {
+      "header": "⌚ Collection",
+      "screenshotPath": "01-collection.png",
+      "subtitle": "Your collection, beautifully organized"
+    },
+    {
+      "header": "🔍 Details",
+      "screenshotPath": "02-detail.png",
+      "subtitle": "Every detail, captured"
+    },
+    {
+      "header": "📈 Value",
+      "screenshotPath": "03-value.png",
+      "subtitle": "Track value over time"
+    },
+    {
+      "header": "📅 Wear History",
+      "screenshotPath": "04-wear.png",
+      "subtitle": "Know what you wear"
+    },
+    {
+      "header": "🛡️ Insurance",
+      "screenshotPath": "05-insurance.png",
+      "subtitle": "Insurance-ready documentation"
+    },
+    {
+      "header": "💫 Wishlist",
+      "screenshotPath": "06-wishlist.png",
+      "subtitle": "Curate your wishlist"
+    },
+    {
+      "header": "⌚ Apple Watch",
+      "screenshotPath": "07-watch.png",
+      "subtitle": "Log from your wrist"
+    },
+    {
+      "header": "📊 Analytics",
+      "screenshotPath": "08-analytics.png",
+      "subtitle": "Collection insights at a glance"
+    }
+  ],
+  "screenshotsDirectory": "screenshots",
+  "theme": {
+    "deviceFrameColor": "#D6B888",
+    "gradientTopColor": "#1A1A1E",
+    "gradientBottomColor": "#0E0E11",
+    "headerFontSizeFraction": 0.038,
+    "pillColor": "#D6B888",
+    "pillCornerRadiusFraction": 0.5,
+    "pillSubtitleGapFraction": 0.007,
+    "pillTextColor": "#0E0E11",
+    "shadowBlur": 30,
+    "shadowOpacity": 0.4,
+    "subtitleColor": "#D6B888",
+    "subtitleDeviceGapFraction": 0.028,
+    "subtitleFontSizeFraction": 0.035,
+    "subtitleMaxWidthFraction": 0.85,
+    "topPaddingFraction": 0.049
+  }
+}
