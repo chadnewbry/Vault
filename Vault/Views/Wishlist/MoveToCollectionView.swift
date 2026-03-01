@@ -2,6 +2,7 @@ import SwiftUI
 
 struct MoveToCollectionView: View {
     @Environment(DataManager.self) private var dataManager
+    @Environment(StoreManager.self) private var storeManager
     @Environment(\.dismiss) private var dismiss
 
     let watch: Watch
@@ -10,6 +11,7 @@ struct MoveToCollectionView: View {
     @State private var purchaseDate: Date = Date()
     @State private var movementType: MovementType
     @State private var caseMaterial: CaseMaterial
+    @State private var showingPaywall = false
 
     init(watch: Watch) {
         self.watch = watch
@@ -19,6 +21,10 @@ struct MoveToCollectionView: View {
 
     private var canSave: Bool {
         !purchasePrice.isEmpty && Double(purchasePrice) != nil
+    }
+
+    private var collectionCount: Int {
+        dataManager.fetchWatches().count
     }
 
     var body: some View {
@@ -41,6 +47,27 @@ struct MoveToCollectionView: View {
                     .padding(.vertical, 4)
                 }
                 .listRowBackground(Color.vaultSurface)
+
+                if !storeManager.canAddWatch(currentCount: collectionCount) {
+                    Section {
+                        HStack {
+                            Image(systemName: "lock.fill")
+                                .foregroundStyle(Color.champagne)
+                            Text("You've used all 5 free watch slots")
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                            Spacer()
+                            Button("Upgrade") { showingPaywall = true }
+                                .font(.subheadline.weight(.semibold))
+                                .foregroundStyle(.black)
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 6)
+                                .background(Color.champagne)
+                                .clipShape(Capsule())
+                        }
+                    }
+                    .listRowBackground(Color.champagne.opacity(0.1))
+                }
 
                 Section("Purchase Details") {
                     HStack {
@@ -90,10 +117,20 @@ struct MoveToCollectionView: View {
                     Button("Cancel") { dismiss() }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Add to Collection") { save() }
-                        .disabled(!canSave)
-                        .foregroundStyle(canSave ? Color.champagne : .gray)
+                    Button("Add to Collection") {
+                        if storeManager.canAddWatch(currentCount: collectionCount) {
+                            save()
+                        } else {
+                            showingPaywall = true
+                        }
+                    }
+                    .disabled(!canSave)
+                    .foregroundStyle(canSave ? Color.champagne : .gray)
                 }
+            }
+            .sheet(isPresented: $showingPaywall) {
+                PaywallView()
+                    .environment(storeManager)
             }
         }
     }

@@ -3,10 +3,12 @@ import SwiftData
 
 struct CollectionView: View {
     @Environment(DataManager.self) private var dataManager
+    @Environment(StoreManager.self) private var storeManager
     @State private var searchText = ""
     @State private var sortOption: WatchSortOption = .dateAdded
     @State private var showingAddWatch = false
     @State private var showingSortPicker = false
+    @State private var showingPaywall = false
     @State private var filterBrand: String?
     @State private var filterMovement: MovementType?
     @State private var filterMaterial: CaseMaterial?
@@ -20,7 +22,6 @@ struct CollectionView: View {
     private var watches: [Watch] {
         var result = dataManager.fetchWatches()
 
-        // Search
         if !searchText.isEmpty {
             let q = searchText.lowercased()
             result = result.filter {
@@ -30,7 +31,6 @@ struct CollectionView: View {
             }
         }
 
-        // Filter
         if let brand = filterBrand {
             result = result.filter { $0.brand == brand }
         }
@@ -41,7 +41,6 @@ struct CollectionView: View {
             result = result.filter { $0.caseMaterial == material }
         }
 
-        // Sort
         switch sortOption {
         case .dateAdded:
             result.sort { $0.createdAt > $1.createdAt }
@@ -60,10 +59,8 @@ struct CollectionView: View {
         Array(Set(dataManager.fetchWatches().map(\.brand))).sorted()
     }
 
-    private static let freeLimit = 3
-
-    private var freeRemaining: Int {
-        max(0, Self.freeLimit - dataManager.fetchWatches().count)
+    private var collectionCount: Int {
+        dataManager.fetchWatches().count
     }
 
     var body: some View {
@@ -94,6 +91,11 @@ struct CollectionView: View {
             .sheet(isPresented: $showingAddWatch) {
                 AddEditWatchView()
                     .environment(dataManager)
+                    .environment(storeManager)
+            }
+            .sheet(isPresented: $showingPaywall) {
+                PaywallView()
+                    .environment(storeManager)
             }
             .confirmationDialog("Sort By", isPresented: $showingSortPicker) {
                 ForEach(WatchSortOption.allCases) { option in
@@ -157,7 +159,11 @@ struct CollectionView: View {
     private var addButton: some View {
         Button {
             UIImpactFeedbackGenerator(style: .medium).impactOccurred()
-            showingAddWatch = true
+            if storeManager.canAddWatch(currentCount: collectionCount) {
+                showingAddWatch = true
+            } else {
+                showingPaywall = true
+            }
         } label: {
             Image(systemName: "plus")
                 .font(.title2.weight(.semibold))
@@ -172,10 +178,20 @@ struct CollectionView: View {
 
     @ViewBuilder
     private var freeCounter: some View {
-        if freeRemaining > 0 {
-            Text("\(freeRemaining) free remaining")
-                .font(.caption)
-                .foregroundStyle(.secondary)
+        if !storeManager.isPremium {
+            let remaining = storeManager.freeRemaining(currentCount: collectionCount)
+            Button {
+                showingPaywall = true
+            } label: {
+                HStack(spacing: 4) {
+                    Text("\(remaining) free remaining")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    Image(systemName: "arrow.up.circle.fill")
+                        .font(.caption)
+                        .foregroundStyle(Color.champagne)
+                }
+            }
         }
     }
 

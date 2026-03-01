@@ -4,6 +4,7 @@ import SwiftData
 @main
 struct VaultApp: App {
     let dataManager: DataManager
+    let storeManager: StoreManager
     private let priceAlertService: PriceAlertService
     @Environment(\.scenePhase) private var scenePhase
 
@@ -13,6 +14,7 @@ struct VaultApp: App {
         } catch {
             fatalError("Failed to initialize data: \(error)")
         }
+        storeManager = StoreManager()
         priceAlertService = PriceAlertService(dataManager: dataManager)
     }
 
@@ -21,6 +23,7 @@ struct VaultApp: App {
             ContentView()
                 .preferredColorScheme(.dark)
                 .environment(dataManager)
+                .environment(storeManager)
                 .task {
                     await priceAlertService.requestNotificationPermission()
                 }
