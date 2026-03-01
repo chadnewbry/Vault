@@ -32,6 +32,14 @@
 		BAE75E79DFAE0411FC56022E /* InsurancePDFService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1219134B99E8EDE1E52AC0 /* InsurancePDFService.swift */; };
 		BDCE1E10FE0DEDFD79A5129D /* ServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5720D18739BEC29A8B5FAA4C /* ServiceType.swift */; };
 		BF9D3C80BDBEEFF46D4D843D /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93086D640732F70FCE4EE21E /* AnalyticsView.swift */; };
+		FBFFD3C5EDEB4AFDA698B896 /* AnalyticsExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98993621C001408198F2F9B8 /* AnalyticsExportView.swift */; };
+		C3B7D3290AA248A78C3418B3 /* BrandBreakdownChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA520028F4A941E89B8F09C6 /* BrandBreakdownChartView.swift */; };
+		D04168D3A80C44F68A111A64 /* CollectionStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CD1D37CCCD4F839C0FB14B /* CollectionStatsView.swift */; };
+		FAB13C2F8C6B4469BD07F0BB /* CollectionValueDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5797B23FD62445C78D1D5FA8 /* CollectionValueDashboardView.swift */; };
+		8B96D15C81CA4882A2FC987E /* ComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E429B335FF664715AEA8107C /* ComparisonView.swift */; };
+		0BCBD8CDB93B498A9593BB2F /* TopPerformersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E740E55A42B4FAAA5395256 /* TopPerformersView.swift */; };
+		D6CBDB43BB07469D86253B13 /* ValueTrendChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DEDBA9CF6549BB99A399F4 /* ValueTrendChartView.swift */; };
+		D8BE91E0D0C548B68A5BD570 /* WearAnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032141A56ED044F3B1C852B9 /* WearAnalyticsView.swift */; };
 		C732AB49FBC5F29E8E1476AB /* DocumentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403FD7A8BE2720D418A64B7 /* DocumentListView.swift */; };
 		C8AB2D54210851A26289B8CC /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E79686895C28F6812B50F70 /* PlaceholderView.swift */; };
 		CA837015C1024EF93370DF2C /* InsuranceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6AFD27C0496FE675CF90F7 /* InsuranceView.swift */; };
@@ -42,6 +50,10 @@
 		1BC3222A605D486C850C5A7E /* WearCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DB3D27A29C4E299543A1EF /* WearCalendarView.swift */; };
 		92F4A216E48E4F6F8BBA1CFB /* WearStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E92946BAD43A7A0F1A751 /* WearStatisticsView.swift */; };
 		E7A4B45272DA5AAB2C2F6036 /* WishlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E16F340D82AB7B1F69DC /* WishlistView.swift */; };
+		2ABC48E796C746EAB6F14DCE /* AddWishlistWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE39C55833A34C89BE2E842C /* AddWishlistWatchView.swift */; };
+		21F211DF47C2486687EF8B02 /* WishlistDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BFF25768F84A61927A431F /* WishlistDetailView.swift */; };
+		C2AC3529E40248BCB69F5C66 /* MoveToCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AFB5BE67FA4BA7AFC6E532 /* MoveToCollectionView.swift */; };
+		4BB64BF758264F459AB6F6CC /* PriceHistoryChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90483D2F4F4C4650A331674D /* PriceHistoryChartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +89,19 @@
 		68DB3D27A29C4E299543A1EF /* WearCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WearCalendarView.swift; sourceTree = "<group>"; };
 		5E6E92946BAD43A7A0F1A751 /* WearStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WearStatisticsView.swift; sourceTree = "<group>"; };
 		93086D640732F70FCE4EE21E /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
+		98993621C001408198F2F9B8 /* AnalyticsExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsExportView.swift; sourceTree = "<group>"; };
+		EA520028F4A941E89B8F09C6 /* BrandBreakdownChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandBreakdownChartView.swift; sourceTree = "<group>"; };
+		B6CD1D37CCCD4F839C0FB14B /* CollectionStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionStatsView.swift; sourceTree = "<group>"; };
+		5797B23FD62445C78D1D5FA8 /* CollectionValueDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionValueDashboardView.swift; sourceTree = "<group>"; };
+		E429B335FF664715AEA8107C /* ComparisonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonView.swift; sourceTree = "<group>"; };
+		7E740E55A42B4FAAA5395256 /* TopPerformersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPerformersView.swift; sourceTree = "<group>"; };
+		A0DEDBA9CF6549BB99A399F4 /* ValueTrendChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueTrendChartView.swift; sourceTree = "<group>"; };
+		032141A56ED044F3B1C852B9 /* WearAnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WearAnalyticsView.swift; sourceTree = "<group>"; };
 		94E9E16F340D82AB7B1F69DC /* WishlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistView.swift; sourceTree = "<group>"; };
+		BE39C55833A34C89BE2E842C /* AddWishlistWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWishlistWatchView.swift; sourceTree = "<group>"; };
+		82BFF25768F84A61927A431F /* WishlistDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistDetailView.swift; sourceTree = "<group>"; };
+		A1AFB5BE67FA4BA7AFC6E532 /* MoveToCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToCollectionView.swift; sourceTree = "<group>"; };
+		90483D2F4F4C4650A331674D /* PriceHistoryChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceHistoryChartView.swift; sourceTree = "<group>"; };
 		9D1219134B99E8EDE1E52AC0 /* InsurancePDFService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsurancePDFService.swift; sourceTree = "<group>"; };
 		9E29B165B2420B54BA9240C9 /* ValueTrackingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueTrackingService.swift; sourceTree = "<group>"; };
 		9EDDEDCFCCC3D9AF4C3DB23A /* PriceAlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceAlertService.swift; sourceTree = "<group>"; };
@@ -169,6 +193,10 @@
 			isa = PBXGroup;
 			children = (
 				94E9E16F340D82AB7B1F69DC /* WishlistView.swift */,
+				BE39C55833A34C89BE2E842C /* AddWishlistWatchView.swift */,
+				82BFF25768F84A61927A431F /* WishlistDetailView.swift */,
+				A1AFB5BE67FA4BA7AFC6E532 /* MoveToCollectionView.swift */,
+				90483D2F4F4C4650A331674D /* PriceHistoryChartView.swift */,
 			);
 			path = Wishlist;
 			sourceTree = "<group>";
@@ -177,6 +205,14 @@
 			isa = PBXGroup;
 			children = (
 				93086D640732F70FCE4EE21E /* AnalyticsView.swift */,
+				98993621C001408198F2F9B8 /* AnalyticsExportView.swift */,
+				EA520028F4A941E89B8F09C6 /* BrandBreakdownChartView.swift */,
+				B6CD1D37CCCD4F839C0FB14B /* CollectionStatsView.swift */,
+				5797B23FD62445C78D1D5FA8 /* CollectionValueDashboardView.swift */,
+				E429B335FF664715AEA8107C /* ComparisonView.swift */,
+				7E740E55A42B4FAAA5395256 /* TopPerformersView.swift */,
+				A0DEDBA9CF6549BB99A399F4 /* ValueTrendChartView.swift */,
+				032141A56ED044F3B1C852B9 /* WearAnalyticsView.swift */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -377,6 +413,14 @@
 				8C5056F8F4D78A6CAF9B984A /* AddDocumentView.swift in Sources */,
 				977D145492A3BDEF6A2763E5 /* AddServiceRecordView.swift in Sources */,
 				BF9D3C80BDBEEFF46D4D843D /* AnalyticsView.swift in Sources */,
+				FBFFD3C5EDEB4AFDA698B896 /* AnalyticsExportView.swift in Sources */,
+				C3B7D3290AA248A78C3418B3 /* BrandBreakdownChartView.swift in Sources */,
+				D04168D3A80C44F68A111A64 /* CollectionStatsView.swift in Sources */,
+				FAB13C2F8C6B4469BD07F0BB /* CollectionValueDashboardView.swift in Sources */,
+				8B96D15C81CA4882A2FC987E /* ComparisonView.swift in Sources */,
+				0BCBD8CDB93B498A9593BB2F /* TopPerformersView.swift in Sources */,
+				D6CBDB43BB07469D86253B13 /* ValueTrendChartView.swift in Sources */,
+				D8BE91E0D0C548B68A5BD570 /* WearAnalyticsView.swift in Sources */,
 				DD771D468AE08423664B6620 /* CollectionView.swift in Sources */,
 				AECFE0BF8DEFDF7925038CF7 /* ContentView.swift in Sources */,
 				3C580B24BACEBD1807305FB7 /* DataManager.swift in Sources */,
@@ -407,6 +451,10 @@
 				92F4A216E48E4F6F8BBA1CFB /* WearStatisticsView.swift in Sources */,
 				DB7D18913E2C9CD8226DA122 /* WearLog.swift in Sources */,
 				E7A4B45272DA5AAB2C2F6036 /* WishlistView.swift in Sources */,
+				2ABC48E796C746EAB6F14DCE /* AddWishlistWatchView.swift in Sources */,
+				21F211DF47C2486687EF8B02 /* WishlistDetailView.swift in Sources */,
+				C2AC3529E40248BCB69F5C66 /* MoveToCollectionView.swift in Sources */,
+				4BB64BF758264F459AB6F6CC /* PriceHistoryChartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
