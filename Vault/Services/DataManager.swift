@@ -81,6 +81,23 @@ final class DataManager {
         modelContext.delete(log)
     }
 
+    func fetchAllWearLogs() -> [WearLog] {
+        let descriptor = FetchDescriptor<WearLog>(
+            sortBy: [SortDescriptor(\.date, order: .reverse)]
+        )
+        return (try? modelContext.fetch(descriptor)) ?? []
+    }
+
+    func wearLogForDate(_ date: Date) -> WearLog? {
+        let calendar = Calendar.current
+        let startOfDay = calendar.startOfDay(for: date)
+        let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)!
+        let descriptor = FetchDescriptor<WearLog>(
+            predicate: #Predicate { $0.date >= startOfDay && $0.date < endOfDay }
+        )
+        return (try? modelContext.fetch(descriptor))?.first
+    }
+
     func fetchWearLogs(for watch: Watch) -> [WearLog] {
         let watchId = watch.id
         let descriptor = FetchDescriptor<WearLog>(
