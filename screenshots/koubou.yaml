@@ -1,0 +1,111 @@
+# Koubou screenshot config for Vault
+# App Store screenshot compositions for secure storage / password & document vault
+
+screenshots:
+  - name: vault-home
+    output_size: "iPhone6_9"
+    background:
+      gradient:
+        colors: ["#1A237E", "#283593"]
+        direction: "top_to_bottom"
+    device:
+      type: "iPhone 15 Pro Portrait"
+      screenshot: "raw/01-vault-home.png"
+      position: "bottom-center"
+      offset_y: 180
+    text:
+      headline: "Your Secure Vault"
+      subtitle: "Passwords, documents, all protected"
+      color: "#FFFFFF"
+      position: "top-center"
+      offset_y: 120
+
+  - name: password-detail
+    output_size: "iPhone6_9"
+    background:
+      gradient:
+        colors: ["#0D47A1", "#1565C0"]
+        direction: "top_to_bottom"
+    device:
+      type: "iPhone 15 Pro Portrait"
+      screenshot: "raw/02-password-detail.png"
+      position: "bottom-center"
+      offset_y: 180
+    text:
+      headline: "Passwords Made Simple"
+      subtitle: "One tap to copy or autofill"
+      color: "#FFFFFF"
+      position: "top-center"
+      offset_y: 120
+
+  - name: document-storage
+    output_size: "iPhone6_9"
+    background:
+      gradient:
+        colors: ["#004D40", "#00695C"]
+        direction: "top_to_bottom"
+    device:
+      type: "iPhone 15 Pro Portrait"
+      screenshot: "raw/03-documents.png"
+      position: "bottom-center"
+      offset_y: 180
+    text:
+      headline: "Store Documents Safely"
+      subtitle: "Encrypted files at your fingertips"
+      color: "#FFFFFF"
+      position: "top-center"
+      offset_y: 120
+
+  - name: security-overview
+    output_size: "iPhone6_9"
+    background:
+      gradient:
+        colors: ["#311B92", "#4527A0"]
+        direction: "top_to_bottom"
+    device:
+      type: "iPhone 15 Pro Portrait"
+      screenshot: "raw/04-security.png"
+      position: "bottom-center"
+      offset_y: 180
+    text:
+      headline: "Bank-Level Security"
+      subtitle: "Face ID, encryption, zero compromise"
+      color: "#FFFFFF"
+      position: "top-center"
+      offset_y: 120
+
+  - name: organize-categories
+    output_size: "iPhone6_9"
+    background:
+      gradient:
+        colors: ["#1B5E20", "#2E7D32"]
+        direction: "top_to_bottom"
+    device:
+      type: "iPhone 15 Pro Portrait"
+      screenshot: "raw/05-categories.png"
+      position: "bottom-center"
+      offset_y: 180
+    text:
+      headline: "Organize Everything"
+      subtitle: "Folders, tags, instant search"
+      color: "#FFFFFF"
+      position: "top-center"
+      offset_y: 120
+
+  - name: settings
+    output_size: "iPhone6_9"
+    background:
+      gradient:
+        colors: ["#37474F", "#546E7A"]
+        direction: "top_to_bottom"
+    device:
+      type: "iPhone 15 Pro Portrait"
+      screenshot: "raw/06-settings.png"
+      position: "bottom-center"
+      offset_y: 180
+    text:
+      headline: "Your Preferences"
+      subtitle: "Backup, sync, and customization"
+      color: "#FFFFFF"
+      position: "top-center"
+      offset_y: 120
