@@ -5,6 +5,7 @@ struct WatchDetailView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var showingEdit = false
     @State private var showingDeleteConfirm = false
+    @State private var showingAddDocument = false
     @State private var selectedPhotoIndex = 0
     @Bindable var watch: Watch
 
@@ -15,6 +16,7 @@ struct WatchDetailView: View {
                 specsCard
                 valueCard
                 wearCard
+                insuranceCard
                 if let notes = watch.notes, !notes.isEmpty {
                     notesCard(notes)
                 }
@@ -42,6 +44,12 @@ struct WatchDetailView: View {
         .sheet(isPresented: $showingEdit) {
             AddEditWatchView(existingWatch: watch)
                 .environment(dataManager)
+        }
+        .sheet(isPresented: $showingAddDocument) {
+            NavigationStack {
+                AddDocumentView(preselectedWatch: watch)
+            }
+            .environment(dataManager)
         }
         .alert("Delete Watch", isPresented: $showingDeleteConfirm) {
             Button("Delete", role: .destructive) {
@@ -188,7 +196,88 @@ struct WatchDetailView: View {
         .padding(.top, 12)
     }
 
-    private func notesCard(_ notes: String) -> some View {
+    // MARK: - Insurance Documents
+
+    private var insuranceCard: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Documents")
+                        .font(.vaultHeadline)
+                        .foregroundStyle(.white)
+                    Text("\(watch.insuranceDocuments.count) document\(watch.insuranceDocuments.count == 1 ? "" : "s")")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
+                Spacer()
+                Button {
+                    showingAddDocument = true
+                } label: {
+                    Image(systemName: "plus.circle.fill")
+                        .font(.title2)
+                        .foregroundStyle(Color.champagne)
+                }
+            }
+
+            if !watch.insuranceDocuments.isEmpty {
+                let sorted = watch.insuranceDocuments.sorted { ($0.date ?? .distantPast) > ($1.date ?? .distantPast) }
+                ForEach(sorted.prefix(3)) { doc in
+                    NavigationLink {
+                        DocumentDetailView(document: doc)
+                    } label: {
+                        HStack(spacing: 12) {
+                            Image(systemName: doc.documentType.icon)
+                                .font(.body)
+                                .foregroundStyle(Color.champagne)
+                                .frame(width: 28)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(doc.title)
+                                    .font(.subheadline)
+                                    .foregroundStyle(.white)
+                                    .lineLimit(1)
+                                HStack(spacing: 6) {
+                                    Text(doc.documentType.displayName)
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                    if let date = doc.date {
+                                        Text(date, style: .date)
+                                            .font(.caption)
+                                            .foregroundStyle(.secondary)
+                                    }
+                                }
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                        .padding(.vertical, 4)
+                    }
+                    .buttonStyle(.plain)
+                }
+
+                if sorted.count > 3 {
+                    NavigationLink {
+                        DocumentListView(filterWatch: watch)
+                            .environment(dataManager)
+                    } label: {
+                        Text("View All \(sorted.count) Documents")
+                            .font(.subheadline)
+                            .foregroundStyle(Color.champagne)
+                            .frame(maxWidth: .infinity)
+                            .padding(.top, 4)
+                    }
+                }
+            }
+        }
+        .padding(20)
+        .background(Color.vaultSurface)
+        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .padding(.horizontal, 16)
+        .padding(.top, 12)
+    }
+
+        private func notesCard(_ notes: String) -> some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Notes").font(.vaultHeadline).foregroundStyle(.white)
             Text(notes).font(.body).foregroundStyle(.secondary)
