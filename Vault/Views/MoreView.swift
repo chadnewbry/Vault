@@ -5,7 +5,6 @@ struct MoreView: View {
         NavigationStack {
             List {
                 Section {
-                    NavigationLink { WearHistoryView() } label: { Label("Wear History", systemImage: "calendar") }
                     NavigationLink { InsuranceView() } label: { Label("Insurance Documents", systemImage: "doc.text.fill") }
                 }
                 Section {
