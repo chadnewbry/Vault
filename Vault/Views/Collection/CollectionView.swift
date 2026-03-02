@@ -14,6 +14,8 @@ struct CollectionView: View {
     @State private var filterMovement: MovementType?
     @State private var filterMaterial: CaseMaterial?
     @State private var showingFilters = false
+    @State private var showingLogWear = false
+    @State private var logWearWatch: Watch?
 
     private let columns = [
         GridItem(.flexible(), spacing: 12),
@@ -115,6 +117,10 @@ struct CollectionView: View {
                 )
                 .presentationDetents([.medium])
             }
+            .sheet(isPresented: $showingLogWear) {
+                LogWearSheet(preselectedWatch: logWearWatch)
+                    .environment(dataManager)
+            }
         }
     }
 
@@ -142,7 +148,10 @@ struct CollectionView: View {
             LazyVGrid(columns: columns, spacing: 12) {
                 ForEach(watches) { watch in
                     NavigationLink(value: watch.id) {
-                        WatchGridCell(watch: watch)
+                        WatchGridCell(watch: watch) { selectedWatch in
+                        logWearWatch = selectedWatch
+                        showingLogWear = true
+                    }
                     }
                     .buttonStyle(.plain)
                 }

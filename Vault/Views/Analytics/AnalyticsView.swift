@@ -7,6 +7,8 @@ struct AnalyticsView: View {
     @State private var selectedRange: DateRange = .sixMonths
     @State private var showExportSheet = false
     @State private var exportImage: UIImage?
+    @State private var showingLogWear = false
+    @State private var logWearWatch: Watch?
 
     private var watches: [Watch] {
         dataManager.fetchWatches()
@@ -40,6 +42,11 @@ struct AnalyticsView: View {
                     ToolbarItem(placement: .topBarTrailing) {
                         Menu {
                             Button {
+                                showingLogWear = true
+                            } label: {
+                                Label("Log Wear", systemImage: "clock.arrow.circlepath")
+                            }
+                            Button {
                                 exportSnapshot()
                             } label: {
                                 Label("Share Snapshot", systemImage: "square.and.arrow.up")
@@ -55,6 +62,10 @@ struct AnalyticsView: View {
                 if let image = exportImage {
                     ShareSheetView(image: image)
                 }
+            }
+            .sheet(isPresented: $showingLogWear) {
+                LogWearSheet(preselectedWatch: logWearWatch)
+                    .environment(dataManager)
             }
         }
     }
@@ -99,7 +110,10 @@ struct AnalyticsView: View {
                 BrandBreakdownChartView(watches: watches)
                 TopPerformersView(watches: watches)
                 CollectionStatsView(watches: watches)
-                WearAnalyticsView(watches: watches, dateRange: selectedRange)
+                WearAnalyticsView(watches: watches, dateRange: selectedRange) { watch in
+                    logWearWatch = watch
+                    showingLogWear = true
+                }
                 ComparisonView(watches: watches)
             }
             .padding(.horizontal)

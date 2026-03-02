@@ -2,6 +2,7 @@ import SwiftUI
 
 struct WatchGridCell: View {
     let watch: Watch
+    var onLogWear: ((Watch) -> Void)?
     @State private var thumbnail: UIImage?
 
     var body: some View {
@@ -43,6 +44,17 @@ struct WatchGridCell: View {
         .background(Color.vaultSurface)
         .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
         .shadow(color: .black.opacity(0.25), radius: 6, y: 3)
+        .contextMenu {
+            Button {
+                onLogWear?(watch)
+            } label: {
+                Label("Log Wear", systemImage: "clock.arrow.circlepath")
+            }
+
+            NavigationLink(value: watch.id) {
+                Label("View Details", systemImage: "info.circle")
+            }
+        }
         .task {
             if let fileName = watch.photoFileNames.first {
                 thumbnail = await PhotoStorageService.shared.loadPhoto(named: fileName)
