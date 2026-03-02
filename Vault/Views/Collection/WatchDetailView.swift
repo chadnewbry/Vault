@@ -12,6 +12,7 @@ struct WatchDetailView: View {
     @State private var customWearDate = Date()
     @State private var woreTodayConfirmed = false
     @State private var selectedPhotoIndex = 0
+    @Binding var selectedTab: AppTab
     @Bindable var watch: Watch
 
     var body: some View {
@@ -221,6 +222,23 @@ struct WatchDetailView: View {
                     .font(.caption)
                     .foregroundStyle(Color.champagne.opacity(0.7))
                     .frame(maxWidth: .infinity)
+            }
+
+            // Navigate to wear history tab
+            Button {
+                selectedTab = .wearHistory
+            } label: {
+                HStack(spacing: 6) {
+                    Image(systemName: "calendar.badge.clock")
+                        .font(.caption)
+                    Text("View Wear History")
+                        .font(.caption)
+                }
+                .foregroundStyle(Color.champagne)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 8)
+                .background(Color.champagne.opacity(0.1))
+                .clipShape(Capsule())
             }
 
             if woreTodayConfirmed {

@@ -26,7 +26,7 @@ struct ContentView: View {
                 .tag(AppTab.analytics)
 
             NavigationStack {
-                WearHistoryView()
+                WearHistoryView(selectedTab: $selectedTab)
             }
             .tabItem {
                 Label("Wear", systemImage: "calendar.badge.clock")
