@@ -46,10 +46,8 @@ struct WearHistoryView: View {
         .navigationTitle("Wear History")
         .background(Color.vaultBackground)
         .sheet(isPresented: $showingLogSheet) {
-            NavigationStack {
-                DailyWearLogView(date: selectedDate)
-            }
-            .presentationDetents([.large])
+            LogWearSheet(date: selectedDate)
+                .presentationDetents([.large])
         }
     }
 }

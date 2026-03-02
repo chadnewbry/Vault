@@ -47,6 +47,7 @@
 		BF9D3C80BDBEEFF46D4D843D /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93086D640732F70FCE4EE21E /* AnalyticsView.swift */; };
 		C732AB49FBC5F29E8E1476AB /* DocumentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403FD7A8BE2720D418A64B7 /* DocumentListView.swift */; };
 		C8AB2D54210851A26289B8CC /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E79686895C28F6812B50F70 /* PlaceholderView.swift */; };
+		758862AE83753C8D375DC42C /* LogWearSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F38608BD8ED5F98173E920 /* LogWearSheet.swift */; };
 		CA837015C1024EF93370DF2C /* InsuranceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6AFD27C0496FE675CF90F7 /* InsuranceView.swift */; };
 		CDFE011EC2F1E630AD79F3AD /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABAC45DAADC583DEE360C3B /* PaywallView.swift */; };
 		D16F691F1E87565463517A09 /* WatchGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6F6F43E3CA1B2E9BC647D9 /* WatchGridCell.swift */; };
@@ -76,6 +77,7 @@
 		0A933C6F4E50579B544514DA /* AddEditWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditWatchView.swift; sourceTree = "<group>"; };
 		0DE625BAA225DC7960C25B96 /* StoreManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		0E79686895C28F6812B50F70 /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
+		A6F38608BD8ED5F98173E920 /* LogWearSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogWearSheet.swift; sourceTree = "<group>"; };
 		26C7BB4D144EF4C23E2EB428 /* PriceHistoryChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceHistoryChartView.swift; sourceTree = "<group>"; };
 		2B39EE0FA2E2A39705645503 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		2B5CBF57F327BCC7042E2FC5 /* WearLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WearLog.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				0E79686895C28F6812B50F70 /* PlaceholderView.swift */,
+				A6F38608BD8ED5F98173E920 /* LogWearSheet.swift */,
 				AA45750A8307AAA77E059D9B /* Theme.swift */,
 			);
 			path = Shared;
@@ -459,6 +462,7 @@
 				B8FB3387D273AE5F6CF90728 /* OnboardingView.swift in Sources */,
 				A278586B865C0B1451C233BE /* PhotoStorageService.swift in Sources */,
 				C8AB2D54210851A26289B8CC /* PlaceholderView.swift in Sources */,
+				758862AE83753C8D375DC42C /* LogWearSheet.swift in Sources */,
 				8F9248D79A2A303E64F2172D /* PriceAlertService.swift in Sources */,
 				B745AA336D17E9AA09F1EA28 /* PriceHistoryChartView.swift in Sources */,
 				36E6109225F9FDC9DFE86F64 /* ServiceRecord.swift in Sources */,

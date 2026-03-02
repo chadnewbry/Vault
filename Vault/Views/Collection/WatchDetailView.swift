@@ -6,6 +6,7 @@ struct WatchDetailView: View {
     @State private var showingEdit = false
     @State private var showingDeleteConfirm = false
     @State private var showingAddDocument = false
+    @State private var showingLogWear = false
     @State private var selectedPhotoIndex = 0
     @Bindable var watch: Watch
 
@@ -50,6 +51,10 @@ struct WatchDetailView: View {
                 AddDocumentView(preselectedWatch: watch)
             }
             .environment(dataManager)
+        }
+        .sheet(isPresented: $showingLogWear) {
+            LogWearSheet(date: Date(), preselectedWatch: watch)
+                .environment(dataManager)
         }
         .alert("Delete Watch", isPresented: $showingDeleteConfirm) {
             Button("Delete", role: .destructive) {
@@ -175,9 +180,7 @@ struct WatchDetailView: View {
                 }
                 Spacer()
                 Button {
-                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                    let log = WearLog(watch: watch, date: Date())
-                    dataManager.addWearLog(log)
+                    showingLogWear = true
                 } label: {
                     Text("Log Wear")
                         .font(.subheadline.weight(.semibold))
