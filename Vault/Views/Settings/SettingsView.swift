@@ -99,25 +99,6 @@ struct SettingsView: View {
                 Text("Data & Privacy")
             }
 
-            // MARK: - Legal
-
-            Section("Legal") {
-                Link(destination: URL(string: "\(baseURL)privacy-policy.html")!) {
-                    Label("Privacy Policy", systemImage: "hand.raised.fill")
-                }
-                Link(destination: URL(string: "\(baseURL)terms-of-service.html")!) {
-                    Label("Terms of Service", systemImage: "doc.text.fill")
-                }
-            }
-
-            // MARK: - Help
-
-            Section("Help") {
-                Link(destination: URL(string: "\(baseURL)support.html")!) {
-                    Label("Support", systemImage: "questionmark.circle.fill")
-                }
-            }
-
             // MARK: - About
 
             Section {
@@ -127,12 +108,22 @@ struct SettingsView: View {
                     Text(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.0")
                         .foregroundStyle(.secondary)
                 }
+
+                Link(destination: URL(string: "\(baseURL)support.html")!) {
+                    Label("Support", systemImage: "questionmark.circle.fill")
+                }
+
+                Link(destination: URL(string: "\(baseURL)privacy-policy.html")!) {
+                    Label("Privacy Policy", systemImage: "hand.raised.fill")
+                }
+
+                Link(destination: URL(string: "\(baseURL)terms-of-service.html")!) {
+                    Label("Terms of Service", systemImage: "doc.text.fill")
+                }
             } header: {
                 Text("About")
             }
         }
-        .navigationTitle("Settings")
-        .toolbarColorScheme(.dark, for: .navigationBar)
         .sheet(isPresented: $showExportSheet) {
             if let url = exportFileURL {
                 ShareSheet(items: [url])
