@@ -4,6 +4,7 @@ import Charts
 struct WearAnalyticsView: View {
     let watches: [Watch]
     let dateRange: DateRange
+    var onLogWear: ((Watch?) -> Void)?
 
     private var allLogs: [WearLog] {
         watches.flatMap(\.wearLogs)
@@ -37,9 +38,19 @@ struct WearAnalyticsView: View {
     var body: some View {
         if !allLogs.isEmpty {
             VStack(alignment: .leading, spacing: 16) {
-                Text("Wear Analytics")
-                    .font(.vaultHeadline)
-                    .foregroundStyle(.white)
+                HStack {
+                    Text("Wear Analytics")
+                        .font(.vaultHeadline)
+                        .foregroundStyle(.white)
+                    Spacer()
+                    Button {
+                        onLogWear?(nil)
+                    } label: {
+                        Label("Log Wear", systemImage: "plus.circle.fill")
+                            .font(.subheadline.weight(.medium))
+                            .foregroundStyle(Color.champagne)
+                    }
+                }
 
                 // Heatmap calendar
                 WearHeatmapView(data: heatmapData, dateRange: dateRange)
@@ -75,10 +86,50 @@ struct WearAnalyticsView: View {
                         }
                     }
                 }
+
+                // Quick wear log shortcuts
+                quickWearSection
             }
             .padding()
             .background(Color.vaultSurface)
             .clipShape(RoundedRectangle(cornerRadius: 14))
+        }
+    }
+
+    @ViewBuilder
+    private var quickWearSection: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Quick Log")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+                .textCase(.uppercase)
+                .tracking(0.5)
+
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 10) {
+                    ForEach(watches.prefix(6)) { watch in
+                        Button {
+                            onLogWear?(watch)
+                        } label: {
+                            VStack(spacing: 6) {
+                                Image(systemName: "watch.analog")
+                                    .font(.title3)
+                                    .foregroundStyle(Color.champagne)
+                                    .frame(width: 44, height: 44)
+                                    .background(Color.champagne.opacity(0.15))
+                                    .clipShape(Circle())
+
+                                Text(watch.modelName)
+                                    .font(.caption2)
+                                    .foregroundStyle(.white)
+                                    .lineLimit(1)
+                                    .frame(width: 64)
+                            }
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+            }
         }
     }
 }

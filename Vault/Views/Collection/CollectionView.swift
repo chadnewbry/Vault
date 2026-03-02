@@ -169,7 +169,9 @@ struct CollectionView: View {
             LazyVGrid(columns: columns, spacing: 12) {
                 ForEach(watches) { watch in
                     NavigationLink(value: watch.id) {
-                        WatchGridCell(watch: watch)
+                        WatchGridCell(watch: watch) { selectedWatch in
+                        watchToLogWear = selectedWatch
+                        }
                     }
                     .buttonStyle(.plain)
                     .contextMenu {
