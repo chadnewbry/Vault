@@ -14,6 +14,9 @@ struct CollectionView: View {
     @State private var filterMovement: MovementType?
     @State private var filterMaterial: CaseMaterial?
     @State private var showingFilters = false
+    @State private var watchToEdit: Watch?
+    @State private var watchToDelete: Watch?
+    @State private var watchToLogWear: Watch?
 
     private let columns = [
         GridItem(.flexible(), spacing: 12),
@@ -115,6 +118,31 @@ struct CollectionView: View {
                 )
                 .presentationDetents([.medium])
             }
+            .sheet(item: $watchToEdit) { watch in
+                AddEditWatchView(existingWatch: watch)
+                    .environment(dataManager)
+                    .environment(storeManager)
+            }
+            .sheet(item: $watchToLogWear) { watch in
+                LogWearSheet(date: Date(), preselectedWatch: watch)
+                    .environment(dataManager)
+            }
+            .alert("Delete Watch", isPresented: Binding(
+                get: { watchToDelete != nil },
+                set: { if !$0 { watchToDelete = nil } }
+            )) {
+                Button("Cancel", role: .cancel) { watchToDelete = nil }
+                Button("Delete", role: .destructive) {
+                    if let watch = watchToDelete {
+                        dataManager.deleteWatch(watch)
+                        watchToDelete = nil
+                    }
+                }
+            } message: {
+                if let watch = watchToDelete {
+                    Text("Are you sure you want to delete \(watch.brand) \(watch.modelName)? This cannot be undone.")
+                }
+            }
         }
     }
 
@@ -145,6 +173,24 @@ struct CollectionView: View {
                         WatchGridCell(watch: watch)
                     }
                     .buttonStyle(.plain)
+                    .contextMenu {
+                        Button {
+                            watchToEdit = watch
+                        } label: {
+                            Label("Edit", systemImage: "pencil")
+                        }
+                        Button {
+                            watchToLogWear = watch
+                        } label: {
+                            Label("Log Wear", systemImage: "clock.arrow.circlepath")
+                        }
+                        Divider()
+                        Button(role: .destructive) {
+                            watchToDelete = watch
+                        } label: {
+                            Label("Delete", systemImage: "trash")
+                        }
+                    }
                 }
             }
             .padding(.horizontal, 12)
