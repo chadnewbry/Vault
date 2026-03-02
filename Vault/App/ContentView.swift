@@ -1,27 +1,40 @@
 import SwiftUI
 
+enum AppTab: String, Hashable {
+    case collection
+    case analytics
+    case wishlist
+    case more
+}
+
 struct ContentView: View {
+    @State private var selectedTab: AppTab = .collection
+
     var body: some View {
-        TabView {
-            CollectionView()
+        TabView(selection: $selectedTab) {
+            CollectionView(selectedTab: $selectedTab)
                 .tabItem {
                     Label("Collection", systemImage: "watch.analog")
                 }
+                .tag(AppTab.collection)
 
-            AnalyticsView()
+            AnalyticsView(selectedTab: $selectedTab)
                 .tabItem {
                     Label("Analytics", systemImage: "chart.bar.fill")
                 }
+                .tag(AppTab.analytics)
 
             WishlistView()
                 .tabItem {
                     Label("Wishlist", systemImage: "heart.fill")
                 }
+                .tag(AppTab.wishlist)
 
             MoreView()
                 .tabItem {
                     Label("More", systemImage: "ellipsis.circle.fill")
                 }
+                .tag(AppTab.more)
         }
         .tint(Color.champagne)
     }

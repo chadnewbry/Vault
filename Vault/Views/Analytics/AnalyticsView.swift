@@ -2,6 +2,7 @@ import SwiftUI
 import Charts
 
 struct AnalyticsView: View {
+    @Binding var selectedTab: AppTab
     @State private var dataManager = DataManager.shared
     @State private var selectedRange: DateRange = .sixMonths
     @State private var showExportSheet = false
@@ -23,6 +24,18 @@ struct AnalyticsView: View {
             .navigationTitle("Analytics")
             .toolbarColorScheme(.dark, for: .navigationBar)
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        selectedTab = .collection
+                    } label: {
+                        HStack(spacing: 4) {
+                            Image(systemName: "watch.analog")
+                            Text("Collection")
+                                .font(.subheadline)
+                        }
+                        .foregroundStyle(Color.champagne)
+                    }
+                }
                 if !watches.isEmpty {
                     ToolbarItem(placement: .topBarTrailing) {
                         Menu {
@@ -59,6 +72,19 @@ struct AnalyticsView: View {
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 32)
+
+            Button {
+                selectedTab = .collection
+            } label: {
+                Label("Go to Collection", systemImage: "watch.analog")
+                    .font(.subheadline.weight(.medium))
+                    .foregroundStyle(.black)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 10)
+                    .background(Color.champagne)
+                    .clipShape(Capsule())
+            }
+            .padding(.top, 8)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.vaultBackground)

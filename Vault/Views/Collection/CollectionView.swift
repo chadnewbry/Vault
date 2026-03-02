@@ -4,6 +4,7 @@ import SwiftData
 struct CollectionView: View {
     @Environment(DataManager.self) private var dataManager
     @Environment(StoreManager.self) private var storeManager
+    @Binding var selectedTab: AppTab
     @State private var searchText = ""
     @State private var sortOption: WatchSortOption = .dateAdded
     @State private var showingAddWatch = false
@@ -82,6 +83,7 @@ struct CollectionView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     HStack(spacing: 12) {
+                        analyticsButton
                         filterButton
                         sortButton
                     }
@@ -192,6 +194,15 @@ struct CollectionView: View {
                         .foregroundStyle(Color.champagne)
                 }
             }
+        }
+    }
+
+    private var analyticsButton: some View {
+        Button {
+            selectedTab = .analytics
+        } label: {
+            Image(systemName: "chart.bar.fill")
+                .foregroundStyle(Color.champagne)
         }
     }
 
