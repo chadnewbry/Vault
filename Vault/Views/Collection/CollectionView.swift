@@ -86,7 +86,6 @@ struct CollectionView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     HStack(spacing: 12) {
-                        analyticsButton
                         filterButton
                         sortButton
                     }
@@ -240,15 +239,6 @@ struct CollectionView: View {
                         .foregroundStyle(Color.champagne)
                 }
             }
-        }
-    }
-
-    private var analyticsButton: some View {
-        Button {
-            selectedTab = .analytics
-        } label: {
-            Image(systemName: "chart.bar.fill")
-                .foregroundStyle(Color.champagne)
         }
     }
 
