@@ -3,13 +3,17 @@ import SwiftUI
 struct InsuranceSummaryView: View {
     @Environment(DataManager.self) private var dataManager
     @Environment(\.dismiss) private var dismiss
+    var filterWatch: Watch? = nil
 
     @State private var isGenerating = false
     @State private var pdfURL: URL?
     @State private var showingShareSheet = false
 
     private var watches: [Watch] {
-        dataManager.fetchWatches()
+        if let watch = filterWatch {
+            return [watch]
+        }
+        return dataManager.fetchWatches()
     }
 
     private var totalValue: Double {
