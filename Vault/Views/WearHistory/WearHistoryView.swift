@@ -48,7 +48,7 @@ struct WearHistoryView: View {
         .background(Color.vaultBackground)
         .navigationDestination(for: UUID.self) { watchID in
             if let watch = dataManager.fetchWatches().first(where: { $0.id == watchID }) {
-                WatchDetailView(watch: watch, selectedTab: $selectedTab)
+                WatchDetailView(selectedTab: $selectedTab, watch: watch)
                     .environment(dataManager)
             }
         }

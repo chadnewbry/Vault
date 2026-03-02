@@ -22,6 +22,7 @@ struct WatchDetailView: View {
                 specsCard
                 valueCard
                 wearCard
+                WatchAnalyticsCard(watch: watch)
                 insuranceCard
                 if let notes = watch.notes, !notes.isEmpty {
                     notesCard(notes)

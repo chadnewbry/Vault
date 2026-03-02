@@ -13,6 +13,7 @@
 		2DAA7119A6DCA5A3090FA1C2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72517D1DEA6047C0C9190FC /* SettingsView.swift */; };
 		2E4600712AFC222557822080 /* TopPerformersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2D3A516957115D6A81027 /* TopPerformersView.swift */; };
 		341C72D60ECCDEF3BC1069AF /* WatchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03155BBBE7963B82AF5D776 /* WatchDetailView.swift */; };
+		CC44166CA7D944C3ACBC056B /* WatchAnalyticsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82F79B44976484DB1DDE027 /* WatchAnalyticsCard.swift */; };
 		36E6109225F9FDC9DFE86F64 /* ServiceRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5282C792A9C9C756066F0A /* ServiceRecord.swift */; };
 		3ADEBF41CAC3A7E56A77AA30 /* WearAnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA94BA5C82FCD4D15806361 /* WearAnalyticsView.swift */; };
 		3C580B24BACEBD1807305FB7 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD5A7C34C7E842E39629E9C /* DataManager.swift */; };
@@ -125,6 +126,7 @@
 		B16F7E03DDA7B2B4820E2133 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		B93AD67463287E603B05218C /* InsuranceSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceSummaryView.swift; sourceTree = "<group>"; };
 		C03155BBBE7963B82AF5D776 /* WatchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDetailView.swift; sourceTree = "<group>"; };
+		C82F79B44976484DB1DDE027 /* WatchAnalyticsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchAnalyticsCard.swift; sourceTree = "<group>"; };
 		C3FA8EA914719BF5F1DD061A /* Watch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch.swift; sourceTree = "<group>"; };
 		C72517D1DEA6047C0C9190FC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		CA84263BDD9E436F3764C223 /* .gitkeep */ = {isa = PBXFileReference; path = .gitkeep; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				0A933C6F4E50579B544514DA /* AddEditWatchView.swift */,
 				B16F7E03DDA7B2B4820E2133 /* CollectionView.swift */,
 				C03155BBBE7963B82AF5D776 /* WatchDetailView.swift */,
+				C82F79B44976484DB1DDE027 /* WatchAnalyticsCard.swift */,
 				8D6F6F43E3CA1B2E9BC647D9 /* WatchGridCell.swift */,
 			);
 			path = Collection;
@@ -481,6 +484,7 @@
 				70DB64EDF4D238EF1099F7AE /* VaultApp.swift in Sources */,
 				4EAC4B76EDFB00FB948D0662 /* Watch.swift in Sources */,
 				341C72D60ECCDEF3BC1069AF /* WatchDetailView.swift in Sources */,
+				CC44166CA7D944C3ACBC056B /* WatchAnalyticsCard.swift in Sources */,
 				D16F691F1E87565463517A09 /* WatchGridCell.swift in Sources */,
 				3ADEBF41CAC3A7E56A77AA30 /* WearAnalyticsView.swift in Sources */,
 				0BF74C03583CE17C29B22447 /* WearCalendarView.swift in Sources */,
