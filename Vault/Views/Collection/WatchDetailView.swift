@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 struct WatchDetailView: View {
     @Environment(DataManager.self) private var dataManager
@@ -7,6 +8,9 @@ struct WatchDetailView: View {
     @State private var showingDeleteConfirm = false
     @State private var showingAddDocument = false
     @State private var showingLogWear = false
+    @State private var showingCustomDatePicker = false
+    @State private var customWearDate = Date()
+    @State private var woreTodayConfirmed = false
     @State private var selectedPhotoIndex = 0
     @Bindable var watch: Watch
 
@@ -55,6 +59,9 @@ struct WatchDetailView: View {
         .sheet(isPresented: $showingLogWear) {
             LogWearSheet(date: Date(), preselectedWatch: watch)
                 .environment(dataManager)
+        }
+        .sheet(isPresented: $showingCustomDatePicker) {
+            customDatePickerSheet
         }
         .alert("Delete Watch", isPresented: $showingDeleteConfirm) {
             Button("Delete", role: .destructive) {
@@ -168,28 +175,64 @@ struct WatchDetailView: View {
 
     private var wearCard: some View {
         VStack(alignment: .leading, spacing: 12) {
-            HStack {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Wear History").font(.vaultHeadline).foregroundStyle(.white)
-                    Text("\(watch.wearCount) times worn")
-                        .font(.subheadline).foregroundStyle(.secondary)
-                    if let lastWorn = watch.lastWorn {
-                        Text("Last worn \(lastWorn, style: .relative) ago")
-                            .font(.caption).foregroundStyle(.secondary)
-                    }
+            VStack(alignment: .leading, spacing: 4) {
+                Text("Wear History").font(.vaultHeadline).foregroundStyle(.white)
+                Text("\(watch.wearCount) times worn")
+                    .font(.subheadline).foregroundStyle(.secondary)
+                if let lastWorn = watch.lastWorn {
+                    Text("Last worn \(lastWorn, style: .relative) ago")
+                        .font(.caption).foregroundStyle(.secondary)
                 }
-                Spacer()
+            }
+
+            // Quick wear actions
+            HStack(spacing: 10) {
                 Button {
-                    showingLogWear = true
+                    quickLogWear(date: Date())
                 } label: {
-                    Text("Log Wear")
+                    Label("Wore Today", systemImage: "checkmark.circle.fill")
                         .font(.subheadline.weight(.semibold))
                         .foregroundStyle(.black)
-                        .padding(.horizontal, 16)
+                        .frame(maxWidth: .infinity)
                         .padding(.vertical, 10)
                         .background(Color.champagne)
                         .clipShape(Capsule())
                 }
+
+                Button {
+                    customWearDate = Date()
+                    showingCustomDatePicker = true
+                } label: {
+                    Label("Custom Date", systemImage: "calendar")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(Color.champagne)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 10)
+                        .background(Color.champagne.opacity(0.15))
+                        .clipShape(Capsule())
+                }
+            }
+
+            // Full log option
+            Button {
+                showingLogWear = true
+            } label: {
+                Text("Log with Details")
+                    .font(.caption)
+                    .foregroundStyle(Color.champagne.opacity(0.7))
+                    .frame(maxWidth: .infinity)
+            }
+
+            if woreTodayConfirmed {
+                HStack(spacing: 6) {
+                    Image(systemName: "checkmark.circle.fill")
+                        .foregroundStyle(.green)
+                    Text("Wear logged!")
+                        .font(.caption.weight(.medium))
+                        .foregroundStyle(.green)
+                }
+                .transition(.scale.combined(with: .opacity))
+                .frame(maxWidth: .infinity)
             }
         }
         .padding(20)
@@ -291,6 +334,78 @@ struct WatchDetailView: View {
         .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
         .padding(.horizontal, 16)
         .padding(.top, 12)
+    }
+
+    // MARK: - Quick Wear Logging
+
+    private func quickLogWear(date: Date) {
+        let calendar = Calendar.current
+        let startOfDay = calendar.startOfDay(for: date)
+
+        // Check if already logged for this date
+        let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)!
+        let descriptor = FetchDescriptor<WearLog>(
+            predicate: #Predicate { $0.date >= startOfDay && $0.date < endOfDay }
+        )
+        if let existing = try? dataManager.modelContext.fetch(descriptor),
+           existing.contains(where: { $0.watch?.id == watch.id }) {
+            // Already logged for this watch today — show confirmation anyway
+            withAnimation(.spring(response: 0.3)) { woreTodayConfirmed = true }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                withAnimation { woreTodayConfirmed = false }
+            }
+            return
+        }
+
+        let log = WearLog(watch: watch, date: startOfDay)
+        dataManager.addWearLog(log)
+        dataManager.save()
+
+        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+        withAnimation(.spring(response: 0.3)) { woreTodayConfirmed = true }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            withAnimation { woreTodayConfirmed = false }
+        }
+    }
+
+    private var customDatePickerSheet: some View {
+        NavigationStack {
+            VStack(spacing: 24) {
+                DatePicker(
+                    "Wear Date",
+                    selection: $customWearDate,
+                    in: ...Date(),
+                    displayedComponents: .date
+                )
+                .datePickerStyle(.graphical)
+                .tint(Color.champagne)
+
+                Button {
+                    quickLogWear(date: customWearDate)
+                    showingCustomDatePicker = false
+                } label: {
+                    Text("Log Wear")
+                        .font(.vaultHeadline)
+                        .foregroundStyle(.black)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 14)
+                        .background(Color.champagne)
+                        .clipShape(RoundedRectangle(cornerRadius: 14))
+                }
+                .padding(.horizontal)
+            }
+            .padding()
+            .background(Color.vaultBackground)
+            .navigationTitle("Choose Date")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cancel") { showingCustomDatePicker = false }
+                        .foregroundStyle(Color.champagne)
+                }
+            }
+        }
+        .presentationDetents([.medium])
     }
 
     // MARK: - Helpers
