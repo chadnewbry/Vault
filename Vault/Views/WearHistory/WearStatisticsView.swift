@@ -112,21 +112,27 @@ struct WearStatisticsView: View {
             }
             .frame(height: 200)
 
-            // Legend
+            // Legend - tappable to navigate to watch detail
             VStack(alignment: .leading, spacing: 6) {
                 ForEach(wearDistribution, id: \.watch.id) { item in
-                    HStack(spacing: 8) {
-                        Circle()
-                            .fill(colorForWatch(item.watch))
-                            .frame(width: 10, height: 10)
-                        Text("\(item.watch.brand) \(item.watch.modelName)")
-                            .font(.caption)
-                            .foregroundStyle(.white)
-                        Spacer()
-                        Text("\(item.count) (\(percentage(item.count))%)")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
+                    NavigationLink(value: item.watch.id) {
+                        HStack(spacing: 8) {
+                            Circle()
+                                .fill(colorForWatch(item.watch))
+                                .frame(width: 10, height: 10)
+                            Text("\(item.watch.brand) \(item.watch.modelName)")
+                                .font(.caption)
+                                .foregroundStyle(.white)
+                            Spacer()
+                            Text("\(item.count) (\(percentage(item.count))%)")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                            Image(systemName: "chevron.right")
+                                .font(.caption2)
+                                .foregroundStyle(.secondary)
+                        }
                     }
+                    .buttonStyle(.plain)
                 }
             }
         }
@@ -140,22 +146,28 @@ struct WearStatisticsView: View {
     private var topWatches: some View {
         HStack(spacing: 12) {
             if let most = mostWorn {
-                WatchStatCard(
-                    title: "Most Worn",
-                    watch: most.watch,
-                    detail: "\(most.count) times",
-                    icon: "crown.fill",
-                    accentColor: Color.champagne
-                )
+                NavigationLink(value: most.watch.id) {
+                    WatchStatCard(
+                        title: "Most Worn",
+                        watch: most.watch,
+                        detail: "\(most.count) times",
+                        icon: "crown.fill",
+                        accentColor: Color.champagne
+                    )
+                }
+                .buttonStyle(.plain)
             }
             if let least = leastWorn, wearDistribution.count > 1 {
-                WatchStatCard(
-                    title: "Least Worn",
-                    watch: least.watch,
-                    detail: "\(least.count) times",
-                    icon: "arrow.down.circle.fill",
-                    accentColor: .secondary
-                )
+                NavigationLink(value: least.watch.id) {
+                    WatchStatCard(
+                        title: "Least Worn",
+                        watch: least.watch,
+                        detail: "\(least.count) times",
+                        icon: "arrow.down.circle.fill",
+                        accentColor: .secondary
+                    )
+                }
+                .buttonStyle(.plain)
             }
         }
     }
@@ -177,7 +189,10 @@ struct WearStatisticsView: View {
                 .foregroundStyle(.secondary)
 
             ForEach(neglectedWatches) { watch in
-                NeglectedWatchRow(watch: watch)
+                NavigationLink(value: watch.id) {
+                    NeglectedWatchRow(watch: watch)
+                }
+                .buttonStyle(.plain)
             }
         }
         .padding()
@@ -200,21 +215,27 @@ struct WearStatisticsView: View {
                     .foregroundStyle(.secondary)
             } else {
                 ForEach(items, id: \.watch.id) { item in
-                    HStack {
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text("\(item.watch.brand) \(item.watch.modelName)")
-                                .font(.subheadline)
-                                .foregroundStyle(.white)
-                            Text("\(item.wears) wears")
+                    NavigationLink(value: item.watch.id) {
+                        HStack {
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("\(item.watch.brand) \(item.watch.modelName)")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.white)
+                                Text("\(item.wears) wears")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                            Spacer()
+                            Text(item.costPerWear, format: .currency(code: "USD"))
+                                .font(.vaultHeadline)
+                                .foregroundStyle(Color.champagne)
+                            Image(systemName: "chevron.right")
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
-                        Spacer()
-                        Text(item.costPerWear, format: .currency(code: "USD"))
-                            .font(.vaultHeadline)
-                            .foregroundStyle(Color.champagne)
+                        .padding(.vertical, 4)
                     }
-                    .padding(.vertical, 4)
+                    .buttonStyle(.plain)
                 }
             }
         }
@@ -378,9 +399,9 @@ struct NeglectedWatchRow: View {
 
             Spacer()
 
-            Text("Give it a spin! 🔄")
-                .font(.caption2)
-                .foregroundStyle(Color.champagne)
+            Image(systemName: "chevron.right")
+                .font(.caption)
+                .foregroundStyle(.secondary)
         }
         .task {
             if let fileName = watch.photoFileNames.first {

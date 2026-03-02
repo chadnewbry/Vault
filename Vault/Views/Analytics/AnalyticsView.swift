@@ -7,7 +7,6 @@ struct AnalyticsView: View {
     @State private var selectedRange: DateRange = .sixMonths
     @State private var showExportSheet = false
     @State private var exportImage: UIImage?
-    @State private var showingLogWear = false
     @State private var logWearWatch: Watch?
 
     private var watches: [Watch] {
@@ -63,8 +62,8 @@ struct AnalyticsView: View {
                     ShareSheetView(image: image)
                 }
             }
-            .sheet(isPresented: $showingLogWear) {
-                LogWearSheet(preselectedWatch: logWearWatch)
+            .sheet(item: $logWearWatch) { watch in
+                LogWearSheet(date: Date(), preselectedWatch: watch)
                     .environment(dataManager)
             }
         }
@@ -111,8 +110,7 @@ struct AnalyticsView: View {
                 TopPerformersView(watches: watches)
                 CollectionStatsView(watches: watches)
                 WearAnalyticsView(watches: watches, dateRange: selectedRange) { watch in
-                    logWearWatch = watch
-                    showingLogWear = true
+                    logWearWatch = watch ?? watches.first
                 }
                 ComparisonView(watches: watches)
             }

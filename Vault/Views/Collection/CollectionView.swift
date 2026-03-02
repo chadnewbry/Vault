@@ -14,8 +14,9 @@ struct CollectionView: View {
     @State private var filterMovement: MovementType?
     @State private var filterMaterial: CaseMaterial?
     @State private var showingFilters = false
-    @State private var showingLogWear = false
-    @State private var logWearWatch: Watch?
+    @State private var watchToEdit: Watch?
+    @State private var watchToDelete: Watch?
+    @State private var watchToLogWear: Watch?
 
     private let columns = [
         GridItem(.flexible(), spacing: 12),
@@ -85,7 +86,6 @@ struct CollectionView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     HStack(spacing: 12) {
-                        analyticsButton
                         filterButton
                         sortButton
                     }
@@ -117,9 +117,30 @@ struct CollectionView: View {
                 )
                 .presentationDetents([.medium])
             }
-            .sheet(isPresented: $showingLogWear) {
-                LogWearSheet(preselectedWatch: logWearWatch)
+            .sheet(item: $watchToEdit) { watch in
+                AddEditWatchView(existingWatch: watch)
                     .environment(dataManager)
+                    .environment(storeManager)
+            }
+            .sheet(item: $watchToLogWear) { watch in
+                LogWearSheet(date: Date(), preselectedWatch: watch)
+                    .environment(dataManager)
+            }
+            .alert("Delete Watch", isPresented: Binding(
+                get: { watchToDelete != nil },
+                set: { if !$0 { watchToDelete = nil } }
+            )) {
+                Button("Cancel", role: .cancel) { watchToDelete = nil }
+                Button("Delete", role: .destructive) {
+                    if let watch = watchToDelete {
+                        dataManager.deleteWatch(watch)
+                        watchToDelete = nil
+                    }
+                }
+            } message: {
+                if let watch = watchToDelete {
+                    Text("Are you sure you want to delete \(watch.brand) \(watch.modelName)? This cannot be undone.")
+                }
             }
         }
     }
@@ -149,11 +170,28 @@ struct CollectionView: View {
                 ForEach(watches) { watch in
                     NavigationLink(value: watch.id) {
                         WatchGridCell(watch: watch) { selectedWatch in
-                        logWearWatch = selectedWatch
-                        showingLogWear = true
-                    }
+                        watchToLogWear = selectedWatch
+                        }
                     }
                     .buttonStyle(.plain)
+                    .contextMenu {
+                        Button {
+                            watchToEdit = watch
+                        } label: {
+                            Label("Edit", systemImage: "pencil")
+                        }
+                        Button {
+                            watchToLogWear = watch
+                        } label: {
+                            Label("Log Wear", systemImage: "clock.arrow.circlepath")
+                        }
+                        Divider()
+                        Button(role: .destructive) {
+                            watchToDelete = watch
+                        } label: {
+                            Label("Delete", systemImage: "trash")
+                        }
+                    }
                 }
             }
             .padding(.horizontal, 12)
@@ -161,7 +199,7 @@ struct CollectionView: View {
         }
         .navigationDestination(for: UUID.self) { watchID in
             if let watch = dataManager.fetchWatches().first(where: { $0.id == watchID }) {
-                WatchDetailView(watch: watch)
+                WatchDetailView(selectedTab: $selectedTab, watch: watch)
                     .environment(dataManager)
             }
         }
@@ -203,15 +241,6 @@ struct CollectionView: View {
                         .foregroundStyle(Color.champagne)
                 }
             }
-        }
-    }
-
-    private var analyticsButton: some View {
-        Button {
-            selectedTab = .analytics
-        } label: {
-            Image(systemName: "chart.bar.fill")
-                .foregroundStyle(Color.champagne)
         }
     }
 

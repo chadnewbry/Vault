@@ -4,6 +4,7 @@ struct AddServiceRecordView: View {
     @Environment(DataManager.self) private var dataManager
     @Environment(\.dismiss) private var dismiss
 
+    var preselectedWatch: Watch? = nil
     @State private var selectedWatch: Watch?
     @State private var serviceDate = Date()
     @State private var serviceType: ServiceType = .fullService
@@ -63,6 +64,7 @@ struct AddServiceRecordView: View {
             }
         }
         .navigationTitle("Add Service Record")
+        .onAppear { if selectedWatch == nil { selectedWatch = preselectedWatch } }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
