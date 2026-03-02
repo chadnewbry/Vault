@@ -3,6 +3,7 @@ import SwiftUI
 enum AppTab: String, Hashable {
     case collection
     case analytics
+    case wearHistory
     case wishlist
     case more
 }
@@ -23,6 +24,14 @@ struct ContentView: View {
                     Label("Analytics", systemImage: "chart.bar.fill")
                 }
                 .tag(AppTab.analytics)
+
+            NavigationStack {
+                WearHistoryView()
+            }
+            .tabItem {
+                Label("Wear", systemImage: "calendar.badge.clock")
+            }
+            .tag(AppTab.wearHistory)
 
             WishlistView()
                 .tabItem {
