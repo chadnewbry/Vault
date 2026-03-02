@@ -16,6 +16,7 @@
 		36E6109225F9FDC9DFE86F64 /* ServiceRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5282C792A9C9C756066F0A /* ServiceRecord.swift */; };
 		3ADEBF41CAC3A7E56A77AA30 /* WearAnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA94BA5C82FCD4D15806361 /* WearAnalyticsView.swift */; };
 		3C580B24BACEBD1807305FB7 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD5A7C34C7E842E39629E9C /* DataManager.swift */; };
+		B2C3D4E5F6789012345678A1 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6789012345678 /* UserPreferences.swift */; };
 		4EAC4B76EDFB00FB948D0662 /* Watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FA8EA914719BF5F1DD061A /* Watch.swift */; };
 		52209C7008CB82F515D64DD6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA45750A8307AAA77E059D9B /* Theme.swift */; };
 		546CAC6337C9C592D5488A69 /* DocumentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856BD9143CB11256BBD30AAD /* DocumentDetailView.swift */; };
@@ -107,6 +108,7 @@
 		89581317C2285AAA8B21A861 /* DailyWearLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWearLogView.swift; sourceTree = "<group>"; };
 		8D6F6F43E3CA1B2E9BC647D9 /* WatchGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchGridCell.swift; sourceTree = "<group>"; };
 		8FD5A7C34C7E842E39629E9C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6789012345678 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		912B73C8A9B29C10D7B32443 /* WearHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WearHistoryView.swift; sourceTree = "<group>"; };
 		93086D640732F70FCE4EE21E /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
 		94E9E16F340D82AB7B1F69DC /* WishlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistView.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				CA84263BDD9E436F3764C223 /* .gitkeep */,
 				8FD5A7C34C7E842E39629E9C /* DataManager.swift */,
 				9D1219134B99E8EDE1E52AC0 /* InsurancePDFService.swift */,
+								A1B2C3D4E5F6789012345678 /* UserPreferences.swift */,
 				026725E7AA863CFA08BD268E /* MarketDataProvider.swift */,
 				6310EA0421E492E0932B8E89 /* PhotoStorageService.swift */,
 				9EDDEDCFCCC3D9AF4C3DB23A /* PriceAlertService.swift */,
@@ -451,6 +454,7 @@
 				6B00E565F10CE2F86E501221 /* DailyWearLogView.swift in Sources */,
 				3C580B24BACEBD1807305FB7 /* DataManager.swift in Sources */,
 				546CAC6337C9C592D5488A69 /* DocumentDetailView.swift in Sources */,
+				B2C3D4E5F6789012345678A1 /* UserPreferences.swift in Sources */,
 				C732AB49FBC5F29E8E1476AB /* DocumentListView.swift in Sources */,
 				804267FE48175AD985F51AD0 /* InsuranceDocument.swift in Sources */,
 				BAE75E79DFAE0411FC56022E /* InsurancePDFService.swift in Sources */,
