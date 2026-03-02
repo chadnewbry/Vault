@@ -8,6 +8,8 @@ struct WatchDetailView: View {
     @State private var showingDeleteConfirm = false
     @State private var showingAddDocument = false
     @State private var showingLogWear = false
+    @State private var showingAddServiceRecord = false
+    @State private var showingInsuranceSummary = false
     @State private var showingCustomDatePicker = false
     @State private var customWearDate = Date()
     @State private var woreTodayConfirmed = false
@@ -24,6 +26,8 @@ struct WatchDetailView: View {
                 wearCard
                 WatchAnalyticsCard(watch: watch)
                 insuranceCard
+                serviceRecordsCard
+                insuranceActionsCard
                 if let notes = watch.notes, !notes.isEmpty {
                     notesCard(notes)
                 }
@@ -64,6 +68,18 @@ struct WatchDetailView: View {
         }
         .sheet(isPresented: $showingCustomDatePicker) {
             customDatePickerSheet
+        }
+        .sheet(isPresented: $showingAddServiceRecord) {
+            NavigationStack {
+                AddServiceRecordView(preselectedWatch: watch)
+            }
+            .environment(dataManager)
+        }
+        .sheet(isPresented: $showingInsuranceSummary) {
+            NavigationStack {
+                InsuranceSummaryView(filterWatch: watch)
+            }
+            .environment(dataManager)
         }
         .alert("Delete Watch", isPresented: $showingDeleteConfirm) {
             Button("Delete", role: .destructive) {
@@ -342,6 +358,166 @@ struct WatchDetailView: View {
         .padding(.top, 12)
     }
 
+
+    // MARK: - Document Completeness
+
+    private var documentCompletenessIndicators: some View {
+        let existingTypes = Set(watch.insuranceDocuments.map(\.documentType))
+        let keyTypes: [(DocType, String)] = [
+            (.receipt, "Receipt"),
+            (.appraisal, "Appraisal"),
+            (.warranty, "Warranty"),
+            (.certificateOfAuthenticity, "Certificate"),
+        ]
+
+        return VStack(alignment: .leading, spacing: 8) {
+            Text("Document Checklist")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+
+            HStack(spacing: 12) {
+                ForEach(keyTypes, id: \.0) { docType, label in
+                    let hasDoc = existingTypes.contains(docType)
+                    VStack(spacing: 4) {
+                        Image(systemName: hasDoc ? "checkmark.circle.fill" : "circle.dashed")
+                            .font(.body)
+                            .foregroundStyle(hasDoc ? .green : Color.champagne.opacity(0.3))
+                        Text(label)
+                            .font(.caption2)
+                            .foregroundStyle(hasDoc ? .white : .secondary)
+                    }
+                    .frame(maxWidth: .infinity)
+                }
+            }
+        }
+    }
+
+    // MARK: - Service Records Card
+
+    private var serviceRecordsCard: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Service History")
+                        .font(.vaultHeadline)
+                        .foregroundStyle(.white)
+                    Text("\(watch.serviceRecords.count) record\(watch.serviceRecords.count == 1 ? "" : "s")")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
+                Spacer()
+                Button {
+                    showingAddServiceRecord = true
+                } label: {
+                    Image(systemName: "plus.circle.fill")
+                        .font(.title2)
+                        .foregroundStyle(Color.champagne)
+                }
+            }
+
+            if !watch.serviceRecords.isEmpty {
+                let sorted = watch.serviceRecords.sorted { $0.serviceDate > $1.serviceDate }
+                ForEach(sorted.prefix(3)) { record in
+                    HStack(spacing: 12) {
+                        let serviceType = ServiceType(rawValue: record.serviceType)
+                        Image(systemName: serviceType?.icon ?? "wrench.fill")
+                            .font(.body)
+                            .foregroundStyle(Color.champagne)
+                            .frame(width: 28)
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(record.serviceType)
+                                .font(.subheadline)
+                                .foregroundStyle(.white)
+                            HStack(spacing: 6) {
+                                Text(record.serviceDate, style: .date)
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                                if let provider = record.provider, !provider.isEmpty {
+                                    Text("• \(provider)")
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                        .lineLimit(1)
+                                }
+                            }
+                        }
+                        Spacer()
+                        if let cost = record.cost {
+                            Text(cost, format: .currency(code: "USD"))
+                                .font(.caption)
+                                .foregroundStyle(Color.champagne)
+                        }
+                    }
+                    .padding(.vertical, 4)
+                }
+
+                // Service interval reminder
+                if let lastService = sorted.first {
+                    let daysSince = Calendar.current.dateComponents([.day], from: lastService.serviceDate, to: Date()).day ?? 0
+                    let yearsSince = Double(daysSince) / 365.25
+                    if yearsSince >= 4 {
+                        HStack(spacing: 8) {
+                            Image(systemName: "exclamationmark.triangle.fill")
+                                .foregroundStyle(.orange)
+                            Text("Last serviced \(String(format: "%.1f", yearsSince)) years ago — consider scheduling maintenance")
+                                .font(.caption)
+                                .foregroundStyle(.orange)
+                        }
+                        .padding(.top, 4)
+                    }
+                }
+
+                if sorted.count > 3 {
+                    NavigationLink {
+                        ServiceRecordListView(filterWatch: watch)
+                            .environment(dataManager)
+                    } label: {
+                        Text("View All \(sorted.count) Records")
+                            .font(.subheadline)
+                            .foregroundStyle(Color.champagne)
+                            .frame(maxWidth: .infinity)
+                            .padding(.top, 4)
+                    }
+                }
+            }
+        }
+        .padding(20)
+        .background(Color.vaultSurface)
+        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .padding(.horizontal, 16)
+        .padding(.top, 12)
+    }
+
+    // MARK: - Insurance Actions Card
+
+    private var insuranceActionsCard: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("Insurance")
+                .font(.vaultHeadline)
+                .foregroundStyle(.white)
+
+            documentCompletenessIndicators
+
+            Button {
+                showingInsuranceSummary = true
+            } label: {
+                HStack {
+                    Image(systemName: "doc.richtext")
+                    Text("Generate Insurance Summary")
+                        .font(.subheadline.weight(.semibold))
+                }
+                .foregroundStyle(.black)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 12)
+                .background(Color.champagne)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+            }
+        }
+        .padding(20)
+        .background(Color.vaultSurface)
+        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .padding(.horizontal, 16)
+        .padding(.top, 12)
+    }
         private func notesCard(_ notes: String) -> some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Notes").font(.vaultHeadline).foregroundStyle(.white)

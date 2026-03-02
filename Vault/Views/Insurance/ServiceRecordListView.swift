@@ -2,11 +2,15 @@ import SwiftUI
 
 struct ServiceRecordListView: View {
     @Environment(DataManager.self) private var dataManager
+    var filterWatch: Watch? = nil
 
     @State private var showingAddRecord = false
 
     private var watches: [Watch] {
-        dataManager.fetchWatches().filter { !$0.serviceRecords.isEmpty }
+        if let watch = filterWatch {
+            return [watch]
+        }
+        return dataManager.fetchWatches().filter { !$0.serviceRecords.isEmpty }
     }
 
     private var totalCost: Double {
