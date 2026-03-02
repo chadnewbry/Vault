@@ -104,8 +104,16 @@ struct WearCalendarView: View {
 
                 // Today's log summary
                 if let todayLog = logsByDay[calendar.startOfDay(for: Date())] {
-                    TodayWearCard(log: todayLog)
+                    if let watch = todayLog.watch {
+                        NavigationLink(value: watch.id) {
+                            TodayWearCard(log: todayLog)
+                        }
+                        .buttonStyle(.plain)
                         .padding(.horizontal)
+                    } else {
+                        TodayWearCard(log: todayLog)
+                            .padding(.horizontal)
+                    }
                 } else {
                     Button {
                         selectedDate = Date()
@@ -240,9 +248,9 @@ struct TodayWearCard: View {
 
             Spacer()
 
-            Image(systemName: "checkmark.circle.fill")
-                .font(.title2)
-                .foregroundStyle(Color.champagne)
+            Image(systemName: "chevron.right")
+                .font(.caption)
+                .foregroundStyle(.secondary)
         }
         .padding()
         .background(Color.vaultSurface)
@@ -267,7 +275,14 @@ struct RecentWearLogsSection: View {
                 .foregroundStyle(.white)
 
             ForEach(logs) { log in
-                RecentWearLogRow(log: log)
+                if let watch = log.watch {
+                    NavigationLink(value: watch.id) {
+                        RecentWearLogRow(log: log)
+                    }
+                    .buttonStyle(.plain)
+                } else {
+                    RecentWearLogRow(log: log)
+                }
             }
         }
     }
@@ -313,6 +328,10 @@ struct RecentWearLogRow: View {
             }
 
             Spacer()
+
+            Image(systemName: "chevron.right")
+                .font(.caption)
+                .foregroundStyle(.secondary)
         }
         .padding(.vertical, 4)
         .task {
