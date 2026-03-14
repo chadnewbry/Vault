@@ -113,6 +113,15 @@ struct SettingsView: View {
                     Label("Support", systemImage: "questionmark.circle.fill")
                 }
 
+                Button {
+                    let email = "chad.newbry@gmail.com"
+                    if let url = URL(string: "mailto:\(email)") {
+                        UIApplication.shared.open(url)
+                    }
+                } label: {
+                    Label("Contact Support", systemImage: "envelope.fill")
+                }
+
                 Link(destination: URL(string: "\(baseURL)privacy-policy.html")!) {
                     Label("Privacy Policy", systemImage: "hand.raised.fill")
                 }
