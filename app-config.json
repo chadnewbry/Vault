@@ -1,0 +1,83 @@
+{
+  "app": {
+    "name": "Vault",
+    "displayName": "Vault — Watch Collection",
+    "bundleId": "com.chadnewbry.vault",
+    "version": "1.0.0",
+    "buildNumber": 1,
+    "deploymentTarget": "17.0",
+    "developmentTeam": "62R87RHN6R",
+    "codeSignStyle": "Automatic"
+  },
+  "appStore": {
+    "subtitle": "Catalog & Track Your Watches",
+    "primaryCategory": "Lifestyle",
+    "secondaryCategory": "Utilities",
+    "ageRating": "4+",
+    "copyright": "© 2026 Chad Newbry, LLC",
+    "priceTier": 0
+  },
+  "permissions": {
+    "camera": "Vault uses the camera to scan and photograph insurance documents, receipts, and appraisals for your watch collection.",
+    "photoLibrary": "Vault accesses your photo library to import documents and watch photos."
+  },
+  "screenshots": {
+    "locale": "en-US",
+    "outputDirectory": "App-Store-Screenshots",
+    "screenshotsDirectory": "screenshots",
+    "screenshotCount": 8,
+    "devices": [
+      {
+        "name": "iPhone 6.5",
+        "outputDirectory": "iPhone 6.5",
+        "outputWidth": 1242,
+        "outputHeight": 2688,
+        "screenAspectRatio": 2.1643,
+        "deviceWidthFraction": 0.75,
+        "bezelWidthFraction": 0.016,
+        "frameCornerRadiusFraction": 0.13
+      },
+      {
+        "name": "iPad 13",
+        "outputDirectory": "iPad 13",
+        "outputWidth": 2064,
+        "outputHeight": 2752,
+        "screenAspectRatio": 1.3333,
+        "deviceWidthFraction": 0.82,
+        "bezelWidthFraction": 0.008,
+        "frameCornerRadiusFraction": 0.045
+      }
+    ],
+    "items": [
+      { "header": "⌚ Collection", "file": "01-collection.png", "subtitle": "Your collection, beautifully organized" },
+      { "header": "🔍 Details", "file": "02-detail.png", "subtitle": "Every detail, captured" },
+      { "header": "📈 Value", "file": "03-value.png", "subtitle": "Track value over time" },
+      { "header": "📅 Wear History", "file": "04-wear.png", "subtitle": "Know what you wear" },
+      { "header": "🛡️ Insurance", "file": "05-insurance.png", "subtitle": "Insurance-ready documentation" },
+      { "header": "💫 Wishlist", "file": "06-wishlist.png", "subtitle": "Curate your wishlist" },
+      { "header": "⌚ Apple Watch", "file": "07-watch.png", "subtitle": "Log from your wrist" },
+      { "header": "📊 Analytics", "file": "08-analytics.png", "subtitle": "Collection insights at a glance" }
+    ],
+    "theme": {
+      "gradientTopColor": "#1A1A1E",
+      "gradientBottomColor": "#0E0E11",
+      "deviceFrameColor": "#D6B888",
+      "pillColor": "#D6B888",
+      "pillTextColor": "#0E0E11",
+      "subtitleColor": "#D6B888",
+      "headerFontSizeFraction": 0.038,
+      "subtitleFontSizeFraction": 0.035,
+      "subtitleMaxWidthFraction": 0.85,
+      "pillCornerRadiusFraction": 0.5,
+      "pillSubtitleGapFraction": 0.007,
+      "subtitleDeviceGapFraction": 0.028,
+      "topPaddingFraction": 0.049,
+      "shadowBlur": 30,
+      "shadowOpacity": 0.4
+    }
+  },
+  "orientation": {
+    "iPhone": ["portrait"],
+    "iPad": ["portrait", "portraitUpsideDown", "landscapeLeft", "landscapeRight"]
+  }
+}
