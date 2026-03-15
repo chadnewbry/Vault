@@ -122,6 +122,16 @@ struct SettingsView: View {
                     Label("Contact Support", systemImage: "envelope.fill")
                 }
 
+                Button {
+                    let email = "chad.newbry@gmail.com"
+                    let subject = "Feedback: Vault".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "Feedback:%20Vault"
+                    if let url = URL(string: "mailto:\(email)?subject=\(subject)") {
+                        UIApplication.shared.open(url)
+                    }
+                } label: {
+                    Label("Feedback / Product Suggestions", systemImage: "lightbulb.fill")
+                }
+
                 Link(destination: URL(string: "\(baseURL)privacy-policy.html")!) {
                     Label("Privacy Policy", systemImage: "hand.raised.fill")
                 }
