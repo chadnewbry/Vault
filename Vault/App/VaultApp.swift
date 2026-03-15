@@ -16,6 +16,12 @@ struct VaultApp: App {
         }
         storeManager = StoreManager()
         priceAlertService = PriceAlertService(dataManager: dataManager)
+
+        #if DEBUG
+        if ScreenshotSampleData.isScreenshotMode {
+            ScreenshotSampleData.populate(context: dataManager.modelContext)
+        }
+        #endif
     }
 
     var body: some Scene {

@@ -1,0 +1,58 @@
+appId: com.chadnewbry.vault
+name: "Capture App Store Screenshots"
+---
+
+# First launch: seed sample data with clean state
+- launchApp:
+    appId: com.chadnewbry.vault
+    clearState: true
+    arguments:
+      - "--screenshot-mode"
+
+# Relaunch without clearing so @Query views pick up seeded data
+- launchApp:
+    appId: com.chadnewbry.vault
+    clearState: false
+    arguments:
+      - "--screenshot-mode"
+
+# Screenshot 1: Collection grid
+- waitForAnimationToEnd
+- takeScreenshot: "01-collection"
+
+# Screenshot 2: Watch detail - tap first watch in collection
+- tapOn: "Rolex"
+- waitForAnimationToEnd
+- takeScreenshot: "02-detail"
+
+# Go back to collection
+- back
+
+# Screenshot 3: Analytics / Value dashboard
+- tapOn: "Analytics"
+- waitForAnimationToEnd
+- takeScreenshot: "03-analytics"
+
+# Screenshot 4: Wear History (navigate from More or collection)
+- tapOn: "Collection"
+- waitForAnimationToEnd
+- tapOn: "Rolex"
+- waitForAnimationToEnd
+- scrollUntilVisible:
+    element: "Wear History"
+    direction: DOWN
+- tapOn: "Wear History"
+- waitForAnimationToEnd
+- takeScreenshot: "04-wear"
+- back
+- back
+
+# Screenshot 5: Wishlist
+- tapOn: "Wishlist"
+- waitForAnimationToEnd
+- takeScreenshot: "05-wishlist"
+
+# Screenshot 6: More / Settings
+- tapOn: "More"
+- waitForAnimationToEnd
+- takeScreenshot: "06-more"
