@@ -1,0 +1,6 @@
+appId: com.chadnewbry.vault
+---
+- launchApp
+- tapOn: "free remaining"
+- waitForAnimationToEnd
+- takeScreenshot: paywall
