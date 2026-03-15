@@ -23,47 +23,37 @@
   ],
   "locale": "en-US",
   "outputDirectory": "App-Store-Screenshots",
-  "screenshotCount": 8,
+  "screenshotCount": 6,
   "screenshots": [
     {
-      "header": "⌚ Collection",
-      "screenshotPath": "01-collection.png",
-      "subtitle": "Your collection, beautifully organized"
+      "header": "\u231a Collection",
+      "subtitle": "Your collection, beautifully organized",
+      "screenshotPath": "01-collection.png"
     },
     {
-      "header": "🔍 Details",
-      "screenshotPath": "02-detail.png",
-      "subtitle": "Every detail, captured"
+      "header": "\ud83d\udd0d Details",
+      "subtitle": "Every detail, captured",
+      "screenshotPath": "02-detail.png"
     },
     {
-      "header": "📈 Value",
-      "screenshotPath": "03-value.png",
-      "subtitle": "Track value over time"
+      "header": "\ud83d\udcca Analytics",
+      "subtitle": "Collection insights at a glance",
+      "screenshotPath": "03-analytics.png"
     },
     {
-      "header": "📅 Wear History",
-      "screenshotPath": "04-wear.png",
-      "subtitle": "Know what you wear"
+      "header": "\ud83d\udcc5 Wear History",
+      "subtitle": "Know what you wear",
+      "screenshotPath": "04-wear.png"
     },
     {
-      "header": "🛡️ Insurance",
-      "screenshotPath": "05-insurance.png",
-      "subtitle": "Insurance-ready documentation"
+      "header": "\ud83d\udcab Wishlist",
+      "subtitle": "Curate your wishlist",
+      "screenshotPath": "05-wishlist.png"
     },
     {
-      "header": "💫 Wishlist",
-      "screenshotPath": "06-wishlist.png",
-      "subtitle": "Curate your wishlist"
-    },
-    {
-      "header": "⌚ Apple Watch",
-      "screenshotPath": "07-watch.png",
-      "subtitle": "Log from your wrist"
-    },
-    {
-      "header": "📊 Analytics",
-      "screenshotPath": "08-analytics.png",
-      "subtitle": "Collection insights at a glance"
+      "header": "\u2699\ufe0f More",
+      "subtitle": "Customize your experience",
+      "screenshotPath": "06-more.png"
     }
   ],
   "screenshotsDirectory": "screenshots",
