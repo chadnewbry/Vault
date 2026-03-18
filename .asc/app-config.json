@@ -19,7 +19,8 @@
     "iaps": [
       {
         "productId": "com.chadnewbry.vault.premium",
-        "type": "non_consumable",
+        "referenceName": "Vault Premium",
+        "type": "NON_CONSUMABLE",
         "displayName": "Vault Premium",
         "description": "Unlock unlimited collection, full analytics, wear history, insurance vault, and price alerts",
         "price": 6.99
