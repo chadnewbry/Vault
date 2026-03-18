@@ -1,0 +1,29 @@
+{
+  "bundleId": "com.chadnewbry.vault",
+  "urls": {
+    "website": null,
+    "privacyPolicy": null,
+    "termsOfService": null,
+    "support": null
+  },
+  "copyright": "© 2026 Chad Newbry",
+  "review": {
+    "demoAccountRequired": false,
+    "contactFirstName": "Chad",
+    "contactLastName": "Newbry",
+    "contactEmail": "chad.newbry@gmail.com",
+    "contactPhone": "+15417605021"
+  },
+  "monetization": {
+    "strategy": "iap",
+    "iaps": [
+      {
+        "productId": "com.chadnewbry.vault.premium",
+        "type": "non_consumable",
+        "displayName": "Vault Premium",
+        "description": "Unlock unlimited collection, full analytics, wear history, insurance vault, and price alerts",
+        "price": 6.99
+      }
+    ]
+  }
+}

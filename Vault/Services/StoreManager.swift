@@ -3,7 +3,7 @@ import StoreKit
 
 @Observable
 final class StoreManager {
-    static let productID = "com.openclaw.vault.premium"
+    static let productID = "com.chadnewbry.vault.premium"
     static let freeWatchLimit = 5
 
     private(set) var isPremium = false
